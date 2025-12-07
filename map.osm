@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API 0.7.62.8 e802775f">
 <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-<meta osm_base="2025-12-07T12:03:49Z"/>
+<meta osm_base="2025-12-07T21:06:45Z"/>
 
   <node id="55686652" lat="38.8371835" lon="-104.7191204" version="7" timestamp="2012-10-19T00:58:05Z" changeset="13551500" uid="207745" user="NE2"/>
   <node id="55686976" lat="38.8914953" lon="-104.9664596" version="4" timestamp="2013-05-23T01:50:12Z" changeset="16246366" uid="1329723" user="CS_Mur"/>
@@ -7765,7 +7765,6 @@
   <node id="2342406670" lat="38.9694000" lon="-106.2076177" version="1" timestamp="2013-06-12T19:39:09Z" changeset="16527087" uid="117055" user="GPS_dr"/>
   <node id="2342406672" lat="38.9621559" lon="-106.2039122" version="1" timestamp="2013-06-12T19:39:09Z" changeset="16527087" uid="117055" user="GPS_dr"/>
   <node id="2342406703" lat="38.9655271" lon="-106.2056824" version="1" timestamp="2013-06-12T19:39:10Z" changeset="16527087" uid="117055" user="GPS_dr"/>
-  <node id="2342434501" lat="39.0378635" lon="-104.7754416" version="4" timestamp="2020-02-11T17:32:13Z" changeset="80863060" uid="10727981" user="CrazyMonkeyBen"/>
   <node id="2342479956" lat="39.0031145" lon="-106.2371761" version="1" timestamp="2013-06-12T20:29:49Z" changeset="16527087" uid="117055" user="GPS_dr"/>
   <node id="2342479965" lat="38.9882084" lon="-106.2195283" version="1" timestamp="2013-06-12T20:29:49Z" changeset="16527087" uid="117055" user="GPS_dr"/>
   <node id="2342479966" lat="39.0393453" lon="-106.2645874" version="1" timestamp="2013-06-12T20:29:49Z" changeset="16527087" uid="117055" user="GPS_dr"/>
@@ -14815,6 +14814,7 @@
   <node id="13300299912" lat="39.3009548" lon="-102.2689372" version="1" timestamp="2025-11-12T20:05:20Z" changeset="174575751" uid="14302398" user="NocoRoads"/>
   <node id="13300299924" lat="39.3009724" lon="-102.2671913" version="1" timestamp="2025-11-12T20:05:20Z" changeset="174575751" uid="14302398" user="NocoRoads"/>
   <node id="13300299976" lat="39.3010826" lon="-102.2677952" version="1" timestamp="2025-11-12T20:05:20Z" changeset="174575751" uid="14302398" user="NocoRoads"/>
+  <node id="13360287324" lat="39.0377677" lon="-104.7755390" version="1" timestamp="2025-12-07T20:51:04Z" changeset="175639842" uid="17308617" user="PizzaTreeIsland"/>
   <way id="7672415" version="20" timestamp="2025-08-04T00:06:45Z" changeset="169929254" uid="22417964" user="Flap Slimy Outward">
     <nd ref="6298523964"/>
     <nd ref="7003669557"/>
@@ -25877,7 +25877,7 @@
     <tag k="source:hgv:national_network" v="CDOT &quot;Highway Data Explorer&quot;"/>
     <tag k="tiger:reviewed" v="no"/>
   </way>
-  <way id="226664582" version="39" timestamp="2025-06-07T01:45:33Z" changeset="167291200" uid="6641970" user="CurlingMan13">
+  <way id="226664582" version="40" timestamp="2025-12-07T20:51:04Z" changeset="175639842" uid="17308617" user="PizzaTreeIsland">
     <nd ref="2354317379"/>
     <nd ref="375529821"/>
     <nd ref="375529825"/>
@@ -26221,7 +26221,7 @@
     <nd ref="375527004"/>
     <nd ref="375527007"/>
     <nd ref="375527010"/>
-    <nd ref="2342434501"/>
+    <nd ref="13360287324"/>
     <nd ref="375527013"/>
     <nd ref="375527016"/>
     <nd ref="375527019"/>

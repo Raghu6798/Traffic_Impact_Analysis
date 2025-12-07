@@ -1,0 +1,8 @@
+<routes>
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>
+    <vType id="pedestrian" vClass="pedestrian" length="0.5" width="0.5" speed="1.2"/>
+    <flow id="flow_cluster_1024122102_1024122804_1025562933_1025563079_#8more_NB" begin="0" end="3600" number="934" from="218652254#1" type="car"/>
+    <flow id="flow_cluster_1024122102_1024122804_1025562933_1025563079_#8more_SB" begin="0" end="3600" number="926" from="238694432#5" type="car"/>
+    <flow id="flow_cluster_1024122102_1024122804_1025562933_1025563079_#8more_EB" begin="0" end="3600" number="1361" from="218652287#0" type="car"/>
+    <flow id="flow_cluster_1024122102_1024122804_1025562933_1025563079_#8more_WB" begin="0" end="3600" number="630" from="218652294#0" type="car"/>
+</routes>
