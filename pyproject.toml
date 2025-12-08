@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.124.0",
     "langchain>=1.1.0",
     "langchain-cerebras>=0.8.2",
     "langchain-community>=0.4.1",
@@ -15,6 +16,8 @@ dependencies = [
     "openpyxl>=3.1.5",
     "overpy>=0.7",
     "pandas>=2.3.3",
+    "pydantic-settings>=2.12.0",
     "python-dotenv>=1.2.1",
     "sumolib>=1.25.0",
+    "uvicorn>=0.38.0",
 ]

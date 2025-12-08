@@ -31,7 +31,7 @@ logger.add(
     format="<green>{time:HH:mm:ss}</green> | <level>{level}</level> | <cyan>{function}</cyan> - <level>{message}</level>"
 )
 
-llm = ChatGroq(model="llama-3.1-8b-instant", api_key=os.getenv("GROQ_API_KEY"))
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=os.getenv("GOOGLE_API_KEY"))
 def get_sumo_binary(binary_name: str) -> str:
     """
     Finds the full path to a SUMO tool (netconvert, sumo, etc.) to avoid PATH errors.
@@ -95,16 +95,57 @@ def calculate_direction(shape_str):
 @tool 
 def parse_tripinfo(tripinfo_file_path: str):
     """
-    Parses a SUMO tripinfo.xml file and returns a pandas DataFrame with the following columns:
-    - trip_id: The ID of the trip
-    - from_edge: The ID of the edge where the trip started
-    - to_edge: The ID of the edge where the trip ended
-    - duration: The duration of the trip in seconds
-    - distance: The distance of the trip in meters
-    - speed: The average speed of the trip in m/s
+    Parses a SUMO tripinfo.xml file and returns a summary of the trips.
+    Extracts duration, distance, and calculated speed.
     """
-    
-    
+    if not os.path.exists(tripinfo_file_path):
+        return "Error: File not found."
+
+    try:
+        tree = ET.parse(tripinfo_file_path)
+        root = tree.getroot()
+        
+        data = []
+        for child in root.findall('tripinfo'):
+            trip_id = child.get('id')
+            depart_lane = child.get('departLane', '')
+            arrival_lane = child.get('arrivalLane', '')
+            duration = float(child.get('duration', 0))
+            distance = float(child.get('routeLength', 0))
+            time_loss = float(child.get('timeLoss', 0))
+            
+            # Extract Edge ID from Lane ID (e.g., "Edge1_0" -> "Edge1")
+            from_edge = "_".join(depart_lane.split("_")[:-1])
+            to_edge = "_".join(arrival_lane.split("_")[:-1])
+            
+            speed = distance / duration if duration > 0 else 0
+            
+            data.append({
+                "trip_id": trip_id,
+                "from_edge": from_edge,
+                "to_edge": to_edge,
+                "duration_sec": duration,
+                "distance_m": distance,
+                "time_loss_sec": time_loss,
+                "speed_mps": speed
+            })
+            
+        df = pd.DataFrame(data)
+        
+        if df.empty:
+            return "No trips found in tripinfo.xml."
+            
+        # Summary Statistics
+        summary = f"Parsed {len(df)} trips.\n"
+        summary += f"Avg Duration: {df['duration_sec'].mean():.2f} s\n"
+        summary += f"Avg Time Loss (Delay): {df['time_loss_sec'].mean():.2f} s\n"
+        summary += f"Avg Speed: {df['speed_mps'].mean():.2f} m/s"
+        
+        return summary
+
+    except Exception as e:
+        logger.error(f"Error parsing tripinfo: {e}")
+        return f"Error parsing tripinfo: {e}"
     
 
 @tool
@@ -635,7 +676,7 @@ Your goal is to build and run a complete **Traffic Impact Analysis (TIA) simulat
 
 **Phase 1: Network & Discovery**
 1.  Download Map -> Convert to `map.net.xml`.
-    *   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
+    * Use  `execute_shell_commands` tool to run the netconvert command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
 2.  Run `extract_candidate_junctions` (Cache map nodes).
 
 **Phase 2: Topology Alignment**
@@ -668,6 +709,7 @@ agent = create_agent(
         generate_traffic_demand,
         create_sumo_config,
         analyze_simulation_results,
+        parse_tripinfo,
         generate_detectors],
     system_prompt=SYSTEM_PROMPT
 ) 

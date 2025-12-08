@@ -11,5 +11,6 @@
     <output>
         <tripinfo-output value="tripinfo.xml"/>
         <summary-output value="summary.xml"/>
+        <queue-output value="queue.xml"/>
     </output>
 </configuration>
