@@ -10,5 +10,4 @@ wheels/
 .venv
 .langgraph_api
 .env*
-.python-version
-.xml* 
+.python-version* 

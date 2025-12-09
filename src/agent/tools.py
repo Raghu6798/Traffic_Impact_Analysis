@@ -1,3 +1,20 @@
+import os
+import pandas as pd 
+import sys
+import json 
+import subprocess
+import platform
+import math
+import statistics
+import requests
+from pydantic import BaseModel 
+from pathlib import Path
+from dotenv import load_dotenv
+import xml.etree.ElementTree as ET
+from langchain_core.tools import tool
+
+from src.utils.logger import logger
+
 @tool
 def read_file_head(file_path: str):
     """Reads a CSV or XLSX file and returns its contents as text."""
@@ -469,8 +486,7 @@ def generate_detectors(output_file: str = "traffic_sensors.add.xml"):
     """
     logger.info(f"📡 Generating Traffic Sensors configuration: {output_file}")
     
-    # freq="900" means it aggregates data every 15 minutes (900 seconds)
-    # excludeEmpty="true" prevents file bloat by ignoring empty roads
+
     content = """<additional>
     <!-- Edge-based metrics (Volume, Speed, Density, Travel Time) -->
     <edgeData id="edge_dump" file="edge_performance.xml" freq="900" excludeEmpty="true"/>

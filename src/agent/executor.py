@@ -1,4 +1,4 @@
-from agent.tools import (
+from src.agent.tools import (
     execute_shell_commands,
     rename_file,
     download_osm_map,
@@ -10,7 +10,14 @@ from agent.tools import (
     parse_tripinfo,
     generate_detectors
 )
-from agent.prompts import SYSTEM_PROMPT
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.agents import create_agent
+
+from src.agent.prompts import SYSTEM_PROMPT
+from src.config.settings import get_settings
+
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=get_settings().GOOGLE_API_KEY)
+
 
 agent = create_agent(
     llm, 
@@ -25,4 +32,4 @@ agent = create_agent(
         parse_tripinfo,
         generate_detectors],
     system_prompt=SYSTEM_PROMPT
-) c 
+) 

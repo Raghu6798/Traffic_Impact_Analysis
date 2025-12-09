@@ -1,0 +1,84 @@
+# # .github/workflows/deploy.yaml
+
+# name: TIA Worker Agent CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - main
+#     # CRITICAL: Only run the workflow if files in the backend folder change
+#     paths:
+#       - 'Traffic_Impact_Analysis/**' 
+#   workflow_dispatch:
+
+# # Centralized environment variables
+# env:
+#   AWS_REGION: us-east-1                  # Replace with your actual region (e.g., ap-south-1)
+#   ECR_REPOSITORY: tia-agent-worker-repo  # The name you gave your ECR repository
+#   BACKEND_DIR: Traffic_Impact_Analysis   # The name of your backend folder
+#   ECS_CLUSTER: tia-agent-cluster         # Your ECS Cluster name
+#   ECS_SERVICE: tia-worker-service        # Your ECS Service name
+#   TASK_DEFINITION_FILE: ecs-task-definition.json # Name of the task def template in BACKEND_DIR
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       # ------------------------------------
+#       # 1. AUTHENTICATION
+#       # ------------------------------------
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v4
+#         with:
+#           # Secrets must be configured in your repository settings
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ${{ env.AWS_REGION }}
+
+#       - name: Login to Amazon ECR
+#         id: login-ecr
+#         uses: aws-actions/amazon-ecr-login@v2
+
+#       # ------------------------------------
+#       # 2. BUILD, TAG, AND PUSH
+#       # ------------------------------------
+#       - name: Build, tag, and push image to Amazon ECR
+#         env:
+#           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#           IMAGE_TAG: ${{ github.sha }} # Uses the Git Commit SHA as the image tag
+#         run: |
+#           # Change directory to the backend code source
+#           cd ${{ env.BACKEND_DIR }}
+          
+#           # Build the Docker image
+#           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          
+#           # Push the new image to ECR
+#           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          
+#           # Save the full image URI for the next step
+#           echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+
+#       # ------------------------------------
+#       # 3. DEPLOY TO ECS
+#       # ------------------------------------
+#       - name: Render new image URI in ECS task definition template
+#         id: task-def
+#         uses: aws-actions/amazon-ecs-render-task-definition@v1
+#         with:
+#           # Uses the JSON template inside your backend folder
+#           task-definition: ${{ env.BACKEND_DIR }}/${{ env.TASK_DEFINITION_FILE }}
+#           container-name: tia-agent-container # ⚠️ MUST match the name in your JSON task definition
+#           image: ${{ env.IMAGE_URI }}
+
+#       - name: Deploy new Task Definition to ECS service
+#         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+#         with:
+#           task-definition: ${{ steps.task-def.outputs.task-definition }}
+#           service: ${{ env.ECS_SERVICE }}
+#           cluster: ${{ env.ECS_CLUSTER }}
+#           wait-for-service-stability: true # Wait for the worker to start successfully before finishing

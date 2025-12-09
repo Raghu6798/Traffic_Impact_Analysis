@@ -1,0 +1,66 @@
+{
+  "family": "tia-agent-worker-task",
+  "executionRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::471112510565:role/tia-agent-ecs-task-role",
+  "requiresCompatibilities": ["EC2"],
+  "networkMode": "awsvpc",
+  
+  "cpu": "1024", 
+  "memory": "2048", 
+  
+  "placementConstraints": [
+    {
+      "type": "memberOf",
+      "expression": "attribute:ecs.instance-type =~ t2.micro|t3.micro"
+    }
+  ],
+  
+  "containerDefinitions": [
+    {
+      "name": "tia-agent-container",
+      "image": "IMAGE_PLACEHOLDER", 
+      "cpu": 1024,
+      "memoryReservation": 1536,
+      "essential": true,
+      "command": ["/usr/local/bin/python", "src/worker.py"],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/tia-agent-worker",
+          "awslogs-region": "us-east-1", 
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "environment": [
+        {
+          "name": "HEADLESS_MODE",
+          "value": "true"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "us-east-1"
+        },
+        {
+          "name": "SQS_QUEUE_URL",
+          "value": "https://sqs.us-east-1.amazonaws.com/471112510565/tia-agent-jobs-queue"
+        },
+        {
+          "name": "S3_BUCKET_NAME",
+          "value": "tia-agent-sim-storage-kdzgsp"
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "value": "AIzaSyBqUJ-40uY3Uk_MeDjiH8olpC2Z5b7rA-o"
+        },
+        {
+          "name": "DATABASE_URL",
+          "value": "postgresql://neondb_owner:npg_9JCZIjhFxcs2@ep-young-cell-ady492of-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        },
+        {
+          "name": "WORK_DIR",
+          "value": "/tmp/sim_work"
+        } 
+      ]
+    }
+  ]
+}
