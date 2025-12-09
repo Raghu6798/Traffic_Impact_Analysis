@@ -11,7 +11,7 @@ class ChatRequest(BaseModel):
     context: Optional[Dict[str, Any]] = None 
 
 @router.post("/api/v1/agent")
-async def chat_agent(request: ChatRequest) -> Dict[str, str]:
+async def chat_agent(request: ChatRequest) -> str:
     try:
     
         input_message = {"role": "user", "content": request.message}
@@ -26,7 +26,7 @@ async def chat_agent(request: ChatRequest) -> Dict[str, str]:
             {"configurable": {"thread_id": request.thread_id}} 
         )
         
-        return {"reply": response_object['messages'][-1].content}
+        return response_object['messages'][-1].content
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
