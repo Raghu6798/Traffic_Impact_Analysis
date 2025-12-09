@@ -5,8 +5,6 @@ from src.config.settings import get_settings
 
 app = FastAPI(title="TIA Agent API")
 
-app.include_router(agent_router)
-
 origins = [
     "https://tia-frontend.vercel.app",
     "http://localhost:3000"
@@ -19,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(agent_router)
 
 @app.get('/')
 def root():
