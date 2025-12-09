@@ -8,7 +8,8 @@ app = FastAPI(title="TIA Agent API")
 app.include_router(agent_router)
 
 origins = [
-    "https://tia-frontend.vercel.app"
+    "https://tia-frontend.vercel.app",
+    "http://localhost:3000"
 ]
 
 app.add_middleware(

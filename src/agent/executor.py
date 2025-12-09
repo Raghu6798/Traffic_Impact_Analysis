@@ -11,12 +11,15 @@ from src.agent.tools import (
     generate_detectors
 )
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langgraph.checkpoint.memory import InMemorySaver  
 from langchain.agents import create_agent
 
 from src.agent.prompts import SYSTEM_PROMPT
 from src.config.settings import get_settings
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=get_settings().GOOGLE_API_KEY)
+settings = get_settings()
+
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=settings.GOOGLE_API_KEY)
 
 
 agent = create_agent(
@@ -31,5 +34,6 @@ agent = create_agent(
         analyze_simulation_results,
         parse_tripinfo,
         generate_detectors],
-    system_prompt=SYSTEM_PROMPT
+    system_prompt=SYSTEM_PROMPT,
+    checkpointer=InMemorySaver()
 ) 
