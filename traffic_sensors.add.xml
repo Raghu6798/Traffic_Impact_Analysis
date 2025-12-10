@@ -1,7 +1,0 @@
-<additional>
-    <!-- Edge-based metrics (Volume, Speed, Density, Travel Time) -->
-    <edgeData id="edge_dump" file="edge_performance.xml" freq="900" excludeEmpty="true"/>
-    
-    <!-- Lane-based metrics (Control Delay per lane) -->
-    <laneData id="lane_dump" file="lane_performance.xml" freq="900" excludeEmpty="true"/>
-</additional>

@@ -1,6 +1,6 @@
 {
   "family": "tia-agent-worker-task",
-  "executionRoleArn": "arn:aws:iam::ACCOUNT-ID:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::471112510565:role/ecsTaskExecutionRole",
   "taskRoleArn": "arn:aws:iam::471112510565:role/tia-agent-ecs-task-role",
   "requiresCompatibilities": ["EC2"],
   "networkMode": "awsvpc",

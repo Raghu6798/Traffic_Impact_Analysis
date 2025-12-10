@@ -6,7 +6,6 @@
 #   push:
 #     branches:
 #       - main
-#     # CRITICAL: Only run the workflow if files in the backend folder change
 #     paths:
 #       - 'Traffic_Impact_Analysis/**' 
 #   workflow_dispatch:
