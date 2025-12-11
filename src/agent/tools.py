@@ -57,6 +57,11 @@ def calculate_direction(shape_str):
     except Exception:
         return "Unknown"
 
+@tool 
+def upload_to_s3():
+
+    
+
 @tool
 def read_file_head(file_path: str):
     """Reads a CSV or XLSX file and returns its contents as text."""

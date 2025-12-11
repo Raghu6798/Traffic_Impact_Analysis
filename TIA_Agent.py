@@ -13,6 +13,8 @@ from loguru import logger
 from dotenv import load_dotenv
 import xml.etree.ElementTree as ET
 import numpy as np 
+import boto3
+from botocore.exceptions import ClientError
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_cerebras import ChatCerebras
@@ -33,6 +35,84 @@ logger.add(
 
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=os.getenv("GOOGLE_API_KEY"))
 
+try:
+    # Use the environment variables loaded by load_dotenv()
+    s3_client = boto3.client(
+        's3',
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=os.getenv("AWS_REGION")
+    )
+    # The global s3_client is now guaranteed to have the right credentials
+
+except Exception as e:
+    logger.error(f"Failed to initialize S3 client. Check AWS credentials. Error: {e}")
+    s3_client = None
+
+
+
+class S3StorageService:
+    """
+    Service for handling file operations with AWS S3.
+    """
+    def __init__(self, bucket_name: str = os.getenv("S3_BUCKET_NAME")):
+        if not s3_client:
+            raise RuntimeError("S3 Client not initialized. Check AWS config.")
+        self.client = s3_client
+        self.bucket_name = bucket_name
+        if not self.bucket_name:
+            logger.warning("S3_BUCKET_NAME environment variable is not set.")
+
+    def upload_file(self, file_path: str, object_name: str) -> str:
+        """
+        Uploads a local file to S3.
+        
+        Args:
+            file_path: The local path to the file to upload (e.g., '/tmp/data.csv').
+            object_name: The S3 key (path) to store the file as (e.g., 'jobs/123/data.csv').
+            
+        Returns:
+            The public S3 URL (or key) of the uploaded file.
+        """
+        if not self.bucket_name:
+            raise ValueError("S3 Bucket Name is not configured.")
+        
+        try:
+            self.client.upload_file(file_path, self.bucket_name, object_name)
+            logger.info(f"File {file_path} uploaded to S3://{self.bucket_name}/{object_name}")
+            # Returns a simplified URL/key for use
+            return f"s3://{self.bucket_name}/{object_name}"
+        except ClientError as e:
+            logger.error(f"Failed to upload file {file_path} to S3. Error: {e}")
+            raise e
+
+    def download_file(self, object_name: str, download_path: str) -> bool:
+        """
+        Downloads a file from S3 to a local path. Used by the background worker.
+        
+        Args:
+            object_name: The S3 key of the file to download.
+            download_path: The local path where the file should be saved.
+            
+        Returns:
+            True on success, False otherwise.
+        """
+        if not self.bucket_name:
+            raise ValueError("S3 Bucket Name is not configured.")
+
+        try:
+            # Ensure the local directory exists
+            os.makedirs(os.path.dirname(download_path), exist_ok=True)
+            
+            self.client.download_file(self.bucket_name, object_name, download_path)
+            logger.info(f"File {object_name} downloaded from S3 to {download_path}")
+            return True
+        except ClientError as e:
+            logger.error(f"Failed to download file {object_name} from S3. Error: {e}")
+            return False
+
+s3_service = S3StorageService()
+s3_bucket_name = os.getenv("S3_BUCKET_NAME")
 def get_sumo_binary(binary_name: str) -> str:
     """
     Finds the full path to a SUMO tool (netconvert, sumo, etc.) to avoid PATH errors.
@@ -219,6 +299,25 @@ def parse_tripinfo(tripinfo_file_path: str):
         return f"Error parsing tripinfo: {e}"
     
 
+@tool 
+def manage_s3_files(local_path: str, s3_key: str = None):
+    """
+    Manages file operations (upload/download) with the S3 Bucket.
+
+    Args:
+        local_path (str): The path to the file on the local filesystem (e.g., 'map.osm').
+        s3_key (str): The full path within the S3 bucket please use raghu6798-tia-sim-storage/current_sim/.
+        for eg. if you want to upload candidates.json file then use raghu6798-tia-sim-storage/current_sim/sim_files/candidates.json
+    
+    Returns:
+        A success message or an error message.
+    """
+    logger.info(f"tool args : {local_path}, {s3_key}")
+    logger.info(f"Uploading file {local_path} to S3://{s3_bucket_name}/{s3_key}")
+    s3_service.upload_file(local_path, s3_key)
+    return "Success: File uploaded to S3."
+
+
 @tool
 def create_sumo_config(net_file: str = "map.net.xml", route_file: str = "traffic.rou.xml", additional_file: str = "traffic_sensors.add.xml"):
     """Creates 'config.sumocfg' for the simulation.
@@ -247,9 +346,6 @@ def create_sumo_config(net_file: str = "map.net.xml", route_file: str = "traffic
     with open("config.sumocfg", "w") as f: f.write(content)
     return "Success: config.sumocfg created."
 
-# src/agent/tools.py (New Tool)
-
-# ... (Existing imports: os, json, ET, np, logger) ...
 
 @tool
 def compute_hcm_metrics(net_file: str = "map.net.xml", tripinfo_file: str = "tripinfo.xml", queue_file: str = "queue.xml"):
@@ -805,38 +901,53 @@ SYSTEM_PROMPT = """
 You are an expert Traffic Simulation Engineer Agent using SUMO on Windows.
 Your goal is to build and run a complete **Traffic Impact Analysis (TIA) simulation**.
 
+**CRITICAL RULE: All intermediary files (map.osm, map.net.xml, flows.xml, etc.) MUST be persisted to S3 after creation and downloaded from S3 before use by another tool. and don't rename these files as you wish**
+
+**File Key Naming Convention:** Use a simple file name (e.g., 'map.net.xml') for the local file, but the full S3 key should include a unique prefix (like 'JOB_ID/map.net.xml'). Assume 'JOB_ID' is 'current_sim'.
+
 **EXECUTION PIPELINE:**
 
 **Phase 1: Network & Discovery**
-1.  Download Map -> Convert to `map.net.xml`.
-    * Use  `execute_shell_commands` tool to run the netconvert command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
-2.  Run `extract_candidate_junctions` (Cache map nodes).
+1.  Download Map -> `map.osm`.
+    * Call `download_osm_map`
+    * **UPLOAD:** Call `manage_s3_files('upload', 'map.osm', 'sim_files/map.osm')`
+2.  Convert to `map.net.xml`.
+    * Use `execute_shell_commands` on `map.osm` -> `map.net.xml`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'map.net.xml', 'sim_files/map.net.xml')`
+3.  Run `extract_candidate_junctions` (Cache map nodes) on `map.net.xml` -> `candidates.json`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'candidates.json', 'sim_files/candidates.json')`
 
 **Phase 2: Topology Alignment**
-*   Run `map_volume_to_topology` using the `candidates.json` file.
-*   Goal: Map human street names to SUMO Edge IDs.
+1.  **DOWNLOAD:** Call `manage_s3_files('download', 'map.net.xml', 'sim_files/map.net.xml')`
+2.  **DOWNLOAD:** Call `manage_s3_files('download', 'candidates.json', 'sim_files/candidates.json')`
+3.  Run `map_volume_to_topology` -> `final_mapping.json`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'final_mapping.json', 'sim_files/final_mapping.json')`
 
 **Phase 3: Demand Generation**
-1.  Call `generate_traffic_demand`.
-2.  **CRITICAL:** If handling a single intersection, you MUST pass `csv_data_path` (path to the Excel/CSV volume data).
-3.  Output: `flows.xml` and `turns.xml`.
-4.Run the `'traffic_sensors.add.xml` to generate the 'traffic_sensors.add.xml' file.
-    This defines Edge and Lane data collectors required for TIA metrics 
+1.  **DOWNLOAD:** Call `manage_s3_files('download', 'final_mapping.json', 'sim_files/final_mapping.json')`
+2.  **DOWNLOAD:** Call `manage_s3_files('download', 'map.net.xml', 'sim_files/map.net.xml')`
+3.  Call `generate_detectors` -> `traffic_sensors.add.xml`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'traffic_sensors.add.xml', 'sim_files/traffic_sensors.add.xml')`
+4.  Call `generate_traffic_demand` -> `flows.xml` and `turns.xml`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'flows.xml', 'sim_files/flows.xml')`
+    * **UPLOAD:** Call `manage_s3_files('upload', 'turns.xml', 'sim_files/turns.xml')`
 
 **Phase 4: Routing**
-1.  Run `jtrrouter` to create routes.
-    *   **MANDATORY COMMAND:**
-        `jtrrouter --net-file map.net.xml --route-files flows.xml --turn-ratio-files turns.xml --output-file traffic.rou.xml --begin 0 --end 3600 --accept-all-destinations true --seed 42`
-    *   *Note:* The `--accept-all-destinations` flag handles sinks automatically. Do NOT create a sinks.xml file.
+1.  **DOWNLOAD** all three files: `map.net.xml`, `flows.xml`, `turns.xml`.
+2.  Run `jtrrouter` to create `traffic.rou.xml`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'traffic.rou.xml', 'sim_files/traffic.rou.xml')`
 
 **Phase 5: Simulation & Analysis**
-1.  Call `create_sumo_config`.
-2.  Run Simulation: `execute_shell_commands("sumo-gui -c config.sumocfg")`.
-3.  Call `compute_hcm_metrics` to calculate the final TIA metrics, including **Average Delay**, **LOS**, and **V/C Ratio**.
-4.  Call `parse_queue_xml` to calculate the **95th Percentile Queue Length** (in meters) for all major approaches.
-
-Then aggregate the metrics and return the final report.
+1.  **DOWNLOAD** all files: `map.net.xml`, `traffic.rou.xml`, `traffic_sensors.add.xml`.
+2.  Call `create_sumo_config` -> `config.sumocfg`.
+    * **UPLOAD:** Call `manage_s3_files('upload', 'config.sumocfg', 'sim_files/config.sumocfg')`
+3.  Run Simulation: `execute_shell_commands("sumo -c config.sumocfg")`.
+4.  **UPLOAD FINAL OUTPUTS:**
+    * **UPLOAD:** Call `manage_s3_files('upload', 'tripinfo.xml', 'sim_files/tripinfo.xml')`
+    * **UPLOAD:** Call `manage_s3_files('upload', 'queue.xml', 'sim_files/queue.xml')`
+5.  Call `compute_hcm_metrics` and `parse_queue_xml` on the newly uploaded files.
 """
+
 agent = create_agent(
     llm, 
     tools=[execute_shell_commands,
@@ -849,7 +960,8 @@ agent = create_agent(
         compute_hcm_metrics,
         parse_tripinfo,
         generate_detectors,
-        parse_queue_xml],
+        parse_queue_xml,
+        manage_s3_files],
     system_prompt=SYSTEM_PROMPT
 ) 
 
