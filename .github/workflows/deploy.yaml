@@ -14,7 +14,7 @@ on:
 env:
   AWS_REGION: us-east-1                  # Replace with your actual region (e.g., ap-south-1)
   ECR_REPOSITORY: tia-agent-worker-repo  # The name you gave your ECR repository
-  BACKEND_DIR: Traffic_Impact_Analysis   # The name of your backend folder
+  BACKEND_DIR: .   # The name of your backend folder
   ECS_CLUSTER: tia-agent-cluster         # Your ECS Cluster name
   ECS_SERVICE: tia-worker-service        # Your ECS Service name
   TASK_DEFINITION_FILE: ecs-task-definition.json # Name of the task def template in BACKEND_DIR
