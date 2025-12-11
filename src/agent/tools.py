@@ -441,30 +441,28 @@ def map_volume_to_topology(net_file: "/tmp/map.net.xml", candidates_json_path: s
     return json.dumps(final_output, indent=2)
 
 @tool
-def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_path: str = "/tmp/candidates.json"):
+def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_path: str = "/tmp/candidates.json"):
     """
     Scans the map for valid intersections and extracts STREET NAMES 
     to allow matching with the Traffic Count Excel file.
-
-    Args:
-        net_file_path: Path to /tmp/map.net.xml
-        output_path: Path to save the output file
+    Saves the result to a JSON file.
+    
     Returns:
-        JSON string containing the candidates and their street names at /tmp/candidates.json
+        A status message confirming the file save location.
     """
-    logger.info(f"🟢 [VERSION 5.0 - /tmp/ FIX APPLIED] Scanning {net_file_path}...")
-    logger.info(f"🔎 Scanning {net_file_path} for intersections with names...")
+    logger.info(f"🟢 [Fixed] Scanning {net_file_path} and saving to {output_path}...")
+    
+    if not os.path.exists(net_file_path):
+        return f"Error: Network file not found at {net_file_path}. Did netconvert run successfully?"
+
     try:
         tree = ET.parse(net_file_path)
         root = tree.getroot()
         
         # 1. Build a lookup of Edge ID -> Street Name
-        # SUMO stores names in the 'name' attribute OR in a <param key="name"/> child
         edge_names = {}
         for edge in root.findall('edge'):
             e_id = edge.get('id')
-            
-            # Check attribute 'name' (common in recent SUMO versions)
             name = edge.get('name')
             
             # If not in attribute, check <param> children
@@ -474,7 +472,6 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_p
                         name = param.get('value')
                         break
             
-            # Fallback: if no name, use ID
             edge_names[e_id] = name if name else e_id
 
         # 2. Find Candidates
@@ -495,11 +492,14 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_p
                 if lane.startswith(":"): continue # Skip internal lanes
                 
                 # Get Edge ID from Lane ID (remove last _0)
-                edge_id = "_".join(lane.split("_")[:-1])
+                # Handle cases where underscore might be part of ID
+                if "_" in lane:
+                    edge_id = "_".join(lane.split("_")[:-1])
+                else:
+                    edge_id = lane
                 
                 if edge_id not in incoming_edges_set:
                     incoming_edges_set.add(edge_id)
-                    # Add the name to the list
                     incoming_details.append({
                         "edge_id": edge_id,
                         "name": edge_names.get(edge_id, "Unknown")
@@ -511,18 +511,22 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_p
                     "junction_id": j_id,
                     "type": j_type,
                     "num_legs": len(incoming_edges_set),
-                    "approaches": incoming_details # Now contains Names!
+                    "approaches": incoming_details
                 })
 
         # Sort by complexity
         candidates.sort(key=lambda x: x['num_legs'], reverse=True)
-        output_path = "/tmp/candidates.json"
+        
+        # 3. WRITE TO FILE (Explicitly using the argument path)
         with open(output_path, 'w') as f:
             json.dump(candidates, f, indent=2)
-        return json.dumps(candidates, indent=2)
+            
+        logger.success(f"Saved {len(candidates)} candidates to {output_path}")
+    
+        return f"Success: Extracted {len(candidates)} candidate junctions. Data saved to {output_path}."
 
     except Exception as e:
-        logger.error(f"Error: {e}")
+        logger.error(f"Error extracting junctions: {e}")
         return f"Error: {e}"
 
 @tool
