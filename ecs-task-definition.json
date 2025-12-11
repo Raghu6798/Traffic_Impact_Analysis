@@ -42,19 +42,19 @@
         },
         {
           "name": "SQS_QUEUE_URL",
-          "value": "https://sqs.us-east-1.amazonaws.com/471112510565/tia-agent-jobs-queue"
+          "value": "https://sqs.us-east-1.amazonaws.com/031780744851/tia-agent-jobs-queue"
         },
         {
           "name": "S3_BUCKET_NAME",
-          "value": "tia-agent-sim-storage-kdzgsp"
+          "value": "raghu6798-tia-sim-storage-final"
         },
         {
           "name": "GOOGLE_API_KEY",
-          "value": "AIzaSyBqUJ-40uY3Uk_MeDjiH8olpC2Z5b7rA-o"
+          "value": ""
         },
         {
           "name": "DATABASE_URL",
-          "value": "postgresql://neondb_owner:npg_9JCZIjhFxcs2@ep-young-cell-ady492of-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+          "value": ""
         },
         {
           "name": "WORK_DIR",
