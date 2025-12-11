@@ -445,6 +445,14 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_p
     """
     Scans the map for valid intersections and extracts STREET NAMES 
     to allow matching with the Traffic Count Excel file.
+
+    Args:
+        net_file_path: Path to /tmp/map.net.xml
+        output_path: Path to save the output file
+    Returns:
+        JSON string containing the candidates and their street names at /tmp/candidates.json
+    """
+    logger.info(f"🟢 [VERSION 5.0 - /tmp/ FIX APPLIED] Scanning {net_file_path}...")
     """
     logger.info(f"🔎 Scanning {net_file_path} for intersections with names...")
     try:
