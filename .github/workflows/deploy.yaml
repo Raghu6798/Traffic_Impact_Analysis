@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - 'Traffic_Impact_Analysis/**' 
+      - '**' 
   workflow_dispatch:
 
 # Centralized environment variables

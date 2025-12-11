@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 app.include_router(agent_router)
-
+app.include_router(status_router)
 
 @app.get('/')
 def root():
