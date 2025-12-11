@@ -8,7 +8,8 @@ from src.agent.tools import (
     create_sumo_config,
     analyze_simulation_results,
     parse_tripinfo,
-    generate_detectors
+    generate_detectors,
+    export_simulation_files
 )
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import InMemorySaver  
@@ -33,7 +34,8 @@ agent = create_agent(
         create_sumo_config,
         analyze_simulation_results,
         parse_tripinfo,
-        generate_detectors],
+        generate_detectors,
+        export_simulation_files],
     system_prompt=SYSTEM_PROMPT,
     checkpointer=InMemorySaver()
 ) 

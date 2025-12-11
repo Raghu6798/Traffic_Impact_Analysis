@@ -10,12 +10,49 @@ import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from langchain_core.tools import tool
+import glob
 
-# Local imports
+from src.services.aws.storage_service import s3_service
 from src.utils.sumo_utils import get_sumo_binary
 from src.utils.logger import logger
 
-# --- HELPER FUNCTION FOR LAMBDA PERMISSIONS ---
+@tool
+def export_simulation_files(job_id: str = "manual_debug"):
+    """
+    Uploads ALL simulation files (xml, json, csv, sumocfg) from /tmp/ to S3.
+    Use this to inspect intermediate files when debugging failures.
+    
+    Args:
+        job_id: A unique identifier for the folder in S3 (e.g., the scenario ID).
+    """
+    logger.info(f"📤 Exporting files for Job ID: {job_id}...")
+    
+    # List of extensions to save
+    extensions = ['*.xml', '*.json', '*.csv', '*.sumocfg', '*.log']
+    files_to_upload = []
+    
+    for ext in extensions:
+        files_to_upload.extend(glob.glob(os.path.join("/tmp", ext)))
+    
+    uploaded_urls = []
+    
+    for local_path in files_to_upload:
+        filename = os.path.basename(local_path)
+        s3_key = f"results/{job_id}/{filename}"
+        
+        try:
+            # Upload to S3
+            s3_url = s3_service.upload_file(local_path, s3_key)
+            uploaded_urls.append(f"{filename} -> {s3_url}")
+        except Exception as e:
+            logger.error(f"Failed to upload {filename}: {e}")
+
+    if not uploaded_urls:
+        return "No files found in /tmp/ to export."
+
+    return "Successfully uploaded to S3:\n" + "\n".join(uploaded_urls)
+
+
 def _enforce_tmp_path(file_path: str) -> str:
     """
     AWS Lambda Helper: valid writes can ONLY happen in /tmp.

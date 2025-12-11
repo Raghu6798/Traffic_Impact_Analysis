@@ -1,0 +1,21 @@
+{
+  "junction_id": "cluster_1024122102_1024122804_1025562933_1025563079_#8more",
+  "mapping": {
+    "SB": {
+      "in_edge": "238694432#5",
+      "name": "Meridian Road"
+    },
+    "WB": {
+      "in_edge": "218652294#0",
+      "name": "East Woodmen Road"
+    },
+    "NB": {
+      "in_edge": "218652254#1",
+      "name": "Meridian Road"
+    },
+    "EB": {
+      "in_edge": "218652287#0",
+      "name": "East Woodmen Road"
+    }
+  }
+}

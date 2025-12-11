@@ -1,0 +1,6615 @@
+[
+  {
+    "junction_id": "cluster_1024122102_1024122804_1025562933_1025563079_#8more",
+    "type": "traffic_light",
+    "num_legs": 8,
+    "approaches": [
+      {
+        "edge_id": "238694432#5",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "1360480045#8",
+        "name": "1360480045#8"
+      },
+      {
+        "edge_id": "218652294#0",
+        "name": "East Woodmen Road"
+      },
+      {
+        "edge_id": "1360480045#11",
+        "name": "1360480045#11"
+      },
+      {
+        "edge_id": "218652254#1",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "1360480045#2",
+        "name": "1360480045#2"
+      },
+      {
+        "edge_id": "218652287#0",
+        "name": "East Woodmen Road"
+      },
+      {
+        "edge_id": "1360480045#5",
+        "name": "1360480045#5"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1024108121_12594314759_12594314760_12594314762_#3more",
+    "type": "traffic_light",
+    "num_legs": 7,
+    "approaches": [
+      {
+        "edge_id": "1360480054#0",
+        "name": "1360480054#0"
+      },
+      {
+        "edge_id": "-218678720#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "400916776#1",
+        "name": "400916776#1"
+      },
+      {
+        "edge_id": "218652295#0",
+        "name": "East Woodmen Road"
+      },
+      {
+        "edge_id": "1360480054#4",
+        "name": "1360480054#4"
+      },
+      {
+        "edge_id": "218678722#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "218652277",
+        "name": "East Woodmen Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1025540905_12594314869",
+    "type": "priority",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "-88290203#2",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "-88289922#4",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "1360480060#7",
+        "name": "1360480060#7"
+      },
+      {
+        "edge_id": "88290203#0",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "88289922#3",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12594314785_316075128",
+    "type": "priority",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "-1157687719#5",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "1360480055#0",
+        "name": "1360480055#0"
+      },
+      {
+        "edge_id": "-218899455#1",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "1157687719#4",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "88292194#9",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12594314786_55846511",
+    "type": "priority",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "1360480055#1",
+        "name": "1360480055#1"
+      },
+      {
+        "edge_id": "-218899446#3",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "1157687719#3",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "218899446#1",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "-1157687719#4",
+        "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12594314936_4704317999",
+    "type": "priority",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "1360480062#13",
+        "name": "1360480062#13"
+      },
+      {
+        "edge_id": "-477020131#1",
+        "name": "-477020131#1"
+      },
+      {
+        "edge_id": "-218899463#1",
+        "name": "-218899463#1"
+      },
+      {
+        "edge_id": "-477020107#0",
+        "name": "-477020107#0"
+      },
+      {
+        "edge_id": "218899463#0",
+        "name": "218899463#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024112592",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88141346#1",
+        "name": "Jaoul Point"
+      },
+      {
+        "edge_id": "-88141337#2",
+        "name": "Gorman Grove"
+      },
+      {
+        "edge_id": "88141346#0",
+        "name": "Jaoul Point"
+      },
+      {
+        "edge_id": "88141337#1",
+        "name": "Gorman Grove"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025538290",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "88290007#10",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88289922#2",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "-88290007#11",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88289922#1",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025539633",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-95474945#0",
+        "name": "Tamlin Road"
+      },
+      {
+        "edge_id": "-189663792",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "95474948#1",
+        "name": "Birch Hollow Way"
+      },
+      {
+        "edge_id": "-88290007#0",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025539654",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88289922#5",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "88290007#2",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88289922#4",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "-88290007#3",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025546516",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88290203#5",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "-88290893#3",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "88290203#4",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "88290893#2",
+        "name": "Indian Echo Terrace"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025546528",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88290893#4",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "88290007#5",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88290893#3",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "-88290007#6",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025547061",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "88290990#0",
+        "name": "Sylamore Way"
+      },
+      {
+        "edge_id": "-88290893#2",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "-88290990#1",
+        "name": "Sylamore Way"
+      },
+      {
+        "edge_id": "88290893#1",
+        "name": "Indian Echo Terrace"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025547613",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88291002#1",
+        "name": "Prairie Walk Terrace"
+      },
+      {
+        "edge_id": "88290007#6",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88291002#0",
+        "name": "Prairie Walk Terrace"
+      },
+      {
+        "edge_id": "-88290007#7",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025565348",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88292185#2",
+        "name": "Merrill Heights"
+      },
+      {
+        "edge_id": "-218670478",
+        "name": "-218670478"
+      },
+      {
+        "edge_id": "88292185#1",
+        "name": "Merrill Heights"
+      },
+      {
+        "edge_id": "218899455#6",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569571",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88292194#3",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-218899446#0",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "88292194#2",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292181",
+        "name": "88292181"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107027794",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-95474948#1",
+        "name": "Birch Hollow Way"
+      },
+      {
+        "edge_id": "-95474949#1",
+        "name": "Wagon Track Way"
+      },
+      {
+        "edge_id": "95474948#0",
+        "name": "Birch Hollow Way"
+      },
+      {
+        "edge_id": "95474949#0",
+        "name": "Wagon Track Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "2001146847",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-189666893#0",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "218899451#4",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "682566144",
+        "name": "682566144"
+      },
+      {
+        "edge_id": "-218899451#5",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "2002488018",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88289922#6",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "897674898#1",
+        "name": "897674898#1"
+      },
+      {
+        "edge_id": "88289922#5",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "-897674898#2",
+        "name": "-897674898#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "2002513614",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-401139260",
+        "name": "Quandary Grove"
+      },
+      {
+        "edge_id": "-189666883#1",
+        "name": "Wurster View"
+      },
+      {
+        "edge_id": "189666882",
+        "name": "Quandary Grove"
+      },
+      {
+        "edge_id": "189666883#0",
+        "name": "Wurster View"
+      }
+    ]
+  },
+  {
+    "junction_id": "2002513645",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "189666888#0",
+        "name": "Teocalli Point"
+      },
+      {
+        "edge_id": "-189666883#3",
+        "name": "Wurster View"
+      },
+      {
+        "edge_id": "-189666888#1",
+        "name": "Teocalli Point"
+      },
+      {
+        "edge_id": "189666883#2",
+        "name": "Wurster View"
+      }
+    ]
+  },
+  {
+    "junction_id": "2281042750",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1157687719#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-763002336#0",
+        "name": "-763002336#0"
+      },
+      {
+        "edge_id": "1157687719#0",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "218899464#4",
+        "name": "218899464#4"
+      }
+    ]
+  },
+  {
+    "junction_id": "2281042754",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "218899463#1",
+        "name": "218899463#1"
+      },
+      {
+        "edge_id": "-218899464#2",
+        "name": "-218899464#2"
+      },
+      {
+        "edge_id": "-1263631456#0",
+        "name": "-1263631456#0"
+      },
+      {
+        "edge_id": "218899464#1",
+        "name": "218899464#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "3758456928",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-141624560#3",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "773828749",
+        "name": "773828749"
+      },
+      {
+        "edge_id": "141624560#2",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "-477020104",
+        "name": "-477020104"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341016992",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "773828757",
+        "name": "773828757"
+      },
+      {
+        "edge_id": "-7683191#12",
+        "name": "-7683191#12"
+      },
+      {
+        "edge_id": "436229847#2",
+        "name": "436229847#2"
+      },
+      {
+        "edge_id": "7683191#11",
+        "name": "7683191#11"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341021798",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-7683191#19",
+        "name": "-7683191#19"
+      },
+      {
+        "edge_id": "-1359966364",
+        "name": "-1359966364"
+      },
+      {
+        "edge_id": "436229873#1",
+        "name": "436229873#1"
+      },
+      {
+        "edge_id": "7683191#18",
+        "name": "7683191#18"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704314482",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1434595980#0",
+        "name": "-1434595980#0"
+      },
+      {
+        "edge_id": "-189666893#1",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "477020110",
+        "name": "477020110"
+      },
+      {
+        "edge_id": "189666893#0",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317763",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "477020107#3",
+        "name": "477020107#3"
+      },
+      {
+        "edge_id": "477020107#0",
+        "name": "477020107#0"
+      },
+      {
+        "edge_id": "1284299421",
+        "name": "1284299421"
+      },
+      {
+        "edge_id": "-477020107#1",
+        "name": "-477020107#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704318015",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-477020107#2",
+        "name": "-477020107#2"
+      },
+      {
+        "edge_id": "477020107#1",
+        "name": "477020107#1"
+      },
+      {
+        "edge_id": "1284299420#1",
+        "name": "1284299420#1"
+      },
+      {
+        "edge_id": "773828765#2",
+        "name": "773828765#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704318024",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1434595980#1",
+        "name": "-1434595980#1"
+      },
+      {
+        "edge_id": "-477020132#0",
+        "name": "-477020132#0"
+      },
+      {
+        "edge_id": "1434595980#0",
+        "name": "1434595980#0"
+      },
+      {
+        "edge_id": "-1284299794",
+        "name": "-1284299794"
+      }
+    ]
+  },
+  {
+    "junction_id": "55774462",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1157687718#0",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1030097807#3",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "7681077#1",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1014074579#1",
+        "name": "Old Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "55792228",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-218678723#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-7683191#0",
+        "name": "-7683191#0"
+      },
+      {
+        "edge_id": "218678723#0",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-88141354#0",
+        "name": "Bierstadt Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "55830096",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1157687719#3",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-1434595981#0",
+        "name": "-1434595981#0"
+      },
+      {
+        "edge_id": "1157687719#2",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "88293321#2",
+        "name": "88293321#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "6927636280",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "739856216#1",
+        "name": "739856216#1"
+      },
+      {
+        "edge_id": "-739856216#2",
+        "name": "-739856216#2"
+      },
+      {
+        "edge_id": "-775557687",
+        "name": "-775557687"
+      },
+      {
+        "edge_id": "-739856216#0",
+        "name": "-739856216#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "6927636283",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "775557687",
+        "name": "775557687"
+      },
+      {
+        "edge_id": "-88293321#1",
+        "name": "-88293321#1"
+      },
+      {
+        "edge_id": "-739856217#0",
+        "name": "-739856217#0"
+      },
+      {
+        "edge_id": "88293321#0",
+        "name": "88293321#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "7134877205",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88292199#2",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "-1284299427#0",
+        "name": "-1284299427#0"
+      },
+      {
+        "edge_id": "88292199#1",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "-763534278",
+        "name": "-763534278"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332861516",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1434595985#0",
+        "name": "-1434595985#0"
+      },
+      {
+        "edge_id": "-218899446#1",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "896403211",
+        "name": "896403211"
+      },
+      {
+        "edge_id": "218899446#0",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1025569585_1025570747",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "1434595978#1",
+        "name": "1434595978#1"
+      },
+      {
+        "edge_id": "88293889",
+        "name": "88293889"
+      },
+      {
+        "edge_id": "-88292194#7",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292194#5",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1025570169_8675785761",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "936284662",
+        "name": "936284662"
+      },
+      {
+        "edge_id": "-218899455#3",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-88293717",
+        "name": "-88293717"
+      },
+      {
+        "edge_id": "218899455#1",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1025570258_8675785753",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-88293889",
+        "name": "-88293889"
+      },
+      {
+        "edge_id": "-88292194#9",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-936284661#0",
+        "name": "-936284661#0"
+      },
+      {
+        "edge_id": "88292194#7",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_10884068631_10884068633",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-218670467#3",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "-1171272417",
+        "name": "-1171272417"
+      },
+      {
+        "edge_id": "218670467#1",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "-1171272418",
+        "name": "-1171272418"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_11804422330_11804422339",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1360480050",
+        "name": "-1360480050"
+      },
+      {
+        "edge_id": "-1360486786#3",
+        "name": "-1360486786#3"
+      },
+      {
+        "edge_id": "1271111653",
+        "name": "1271111653"
+      },
+      {
+        "edge_id": "1360486786#1",
+        "name": "1360486786#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_11804422331_11804422342",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1271111650#1",
+        "name": "-1271111650#1"
+      },
+      {
+        "edge_id": "-1271111652",
+        "name": "-1271111652"
+      },
+      {
+        "edge_id": "1271111656#2",
+        "name": "1271111656#2"
+      },
+      {
+        "edge_id": "-1271111655#0",
+        "name": "-1271111655#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_11804422338_12594314725",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1271111650#3",
+        "name": "-1271111650#3"
+      },
+      {
+        "edge_id": "-1271111653",
+        "name": "-1271111653"
+      },
+      {
+        "edge_id": "1271111650#1",
+        "name": "1271111650#1"
+      },
+      {
+        "edge_id": "1360480052#1",
+        "name": "1360480052#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_11914873783_2281042755",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1284299420#0",
+        "name": "-1284299420#0"
+      },
+      {
+        "edge_id": "-218899464#1",
+        "name": "-218899464#1"
+      },
+      {
+        "edge_id": "1263631456#2",
+        "name": "1263631456#2"
+      },
+      {
+        "edge_id": "218899462",
+        "name": "218899462"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12594314791_7028341539",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-1157687719#0",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "1360480055#4",
+        "name": "1360480055#4"
+      },
+      {
+        "edge_id": "-751841742#1",
+        "name": "-751841742#1"
+      },
+      {
+        "edge_id": "218899447",
+        "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1550214884_4704317756",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-218899451#1",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "-477020113",
+        "name": "-477020113"
+      },
+      {
+        "edge_id": "896870298",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "682566153#1",
+        "name": "682566153#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2002513640_2002513653",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "189666896",
+        "name": "Shaolin Grove"
+      },
+      {
+        "edge_id": "189666897",
+        "name": "Vignola Heights"
+      },
+      {
+        "edge_id": "189666900",
+        "name": "Louvre Point"
+      },
+      {
+        "edge_id": "-401139262#1",
+        "name": "Vignola Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4340533501_6961416117",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-743790144",
+        "name": "-743790144"
+      },
+      {
+        "edge_id": "-7683191#8",
+        "name": "-7683191#8"
+      },
+      {
+        "edge_id": "436179217#2",
+        "name": "436179217#2"
+      },
+      {
+        "edge_id": "7683191#6",
+        "name": "7683191#6"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4340535805_7223138413",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-773828752",
+        "name": "-773828752"
+      },
+      {
+        "edge_id": "-7683191#4",
+        "name": "-7683191#4"
+      },
+      {
+        "edge_id": "-436179217#0",
+        "name": "-436179217#0"
+      },
+      {
+        "edge_id": "7683191#2",
+        "name": "7683191#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4341016997_7223138427",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "773828759",
+        "name": "773828759"
+      },
+      {
+        "edge_id": "-7683191#15",
+        "name": "-7683191#15"
+      },
+      {
+        "edge_id": "-436229853#0",
+        "name": "-436229853#0"
+      },
+      {
+        "edge_id": "7683191#13",
+        "name": "7683191#13"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4341017695_7223138429",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "773828760",
+        "name": "773828760"
+      },
+      {
+        "edge_id": "-7683191#17",
+        "name": "-7683191#17"
+      },
+      {
+        "edge_id": "-436229873#0",
+        "name": "-436229873#0"
+      },
+      {
+        "edge_id": "7683191#15",
+        "name": "7683191#15"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4341021894_7223138420",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "773828755",
+        "name": "773828755"
+      },
+      {
+        "edge_id": "-7683191#10",
+        "name": "-7683191#10"
+      },
+      {
+        "edge_id": "-436229847#0",
+        "name": "-436229847#0"
+      },
+      {
+        "edge_id": "7683191#8",
+        "name": "7683191#8"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4341029891_4341056491_4341062592",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "436232874",
+        "name": "436232874"
+      },
+      {
+        "edge_id": "88141354#1",
+        "name": "Bierstadt Heights"
+      },
+      {
+        "edge_id": "436232202#2",
+        "name": "436232202#2"
+      },
+      {
+        "edge_id": "-88141354#4",
+        "name": "Bierstadt Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_4704318041_6392271849",
+    "type": "right_before_left",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "-773828762#2",
+        "name": "-773828762#2"
+      },
+      {
+        "edge_id": "-682566155#0",
+        "name": "-682566155#0"
+      },
+      {
+        "edge_id": "477020104",
+        "name": "477020104"
+      },
+      {
+        "edge_id": "773828762#0",
+        "name": "773828762#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "10060792372",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1098805460#1",
+        "name": "-1098805460#1"
+      },
+      {
+        "edge_id": "1098805461",
+        "name": "1098805461"
+      },
+      {
+        "edge_id": "1098805460#0",
+        "name": "1098805460#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024112524",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88141337#1",
+        "name": "Gorman Grove"
+      },
+      {
+        "edge_id": "88141340",
+        "name": "Gallard Heights"
+      },
+      {
+        "edge_id": "88141337#0",
+        "name": "Gorman Grove"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024112682",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88141354#4",
+        "name": "Bierstadt Heights"
+      },
+      {
+        "edge_id": "88141337#2",
+        "name": "Gorman Grove"
+      },
+      {
+        "edge_id": "-88141354#5",
+        "name": "Bierstadt Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024123265",
+    "type": "traffic_light",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1014074585",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "773677691#2",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "189663799",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024123371",
+    "type": "traffic_light",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "599496410#3",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "-189663799",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "88289922#9",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025538288",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88290007#9",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#10",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "95475018",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025539642",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290147",
+        "name": "Foxwall Way"
+      },
+      {
+        "edge_id": "88290007#0",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#1",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025540040",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1169332068",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88290123",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290203#0",
+        "name": "Bridal Vail Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025540917",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88290203#3",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "88290990#1",
+        "name": "Sylamore Way"
+      },
+      {
+        "edge_id": "-88290203#4",
+        "name": "Bridal Vail Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025540935",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88290007#8",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88290203#6",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "-88290007#9",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025544603",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290696",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#13",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88290007#12",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025546354",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290893#0",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "-88289922#3",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "88289922#2",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025547226",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290203#6",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "-88291002#0",
+        "name": "Prairie Walk Terrace"
+      },
+      {
+        "edge_id": "88290203#5",
+        "name": "Bridal Vail Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025547635",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88291004",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88290007#4",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#5",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025551194",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88289922#8",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "88289922#7",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "-88291250#0",
+        "name": "Foxtail Meadow Lane"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025551838",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88291250#3",
+        "name": "Foxtail Meadow Lane"
+      },
+      {
+        "edge_id": "-682566139#0",
+        "name": "-682566139#0"
+      },
+      {
+        "edge_id": "88291250#2",
+        "name": "Foxtail Meadow Lane"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025558964",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88291818#2",
+        "name": "88291818#2"
+      },
+      {
+        "edge_id": "7683191#20",
+        "name": "7683191#20"
+      },
+      {
+        "edge_id": "-7683191#21",
+        "name": "-7683191#21"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025558985",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88291818#0",
+        "name": "-88291818#0"
+      },
+      {
+        "edge_id": "7683191#33",
+        "name": "7683191#33"
+      },
+      {
+        "edge_id": "-7683191#34",
+        "name": "-7683191#34"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025559851",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#32",
+        "name": "7683191#32"
+      },
+      {
+        "edge_id": "-88291733",
+        "name": "-88291733"
+      },
+      {
+        "edge_id": "-7683191#33",
+        "name": "-7683191#33"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025564889",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292185#0",
+        "name": "Merrill Heights"
+      },
+      {
+        "edge_id": "-218899446#5",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "218899446#4",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025564978",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "218899446#9",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "88292185#2",
+        "name": "Merrill Heights"
+      },
+      {
+        "edge_id": "-218899446#10",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025565344",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292199#0",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "-218899455#4",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "218899455#3",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025565805",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292194#4",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292194#3",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-88292181",
+        "name": "-88292181"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025568680",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899446#4",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "218670467#3",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "218899446#3",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025568708",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293094",
+        "name": "Azuma Heights"
+      },
+      {
+        "edge_id": "218899446#8",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "-218899446#9",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025568711",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293136#1",
+        "name": "-88293136#1"
+      },
+      {
+        "edge_id": "88293094",
+        "name": "Azuma Heights"
+      },
+      {
+        "edge_id": "88293136#0",
+        "name": "88293136#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025568735",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293102",
+        "name": "Kaufman Point"
+      },
+      {
+        "edge_id": "218899446#7",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "-218899446#8",
+        "name": "Maybeck View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025568743",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293150#1",
+        "name": "-88293150#1"
+      },
+      {
+        "edge_id": "88293102",
+        "name": "Kaufman Point"
+      },
+      {
+        "edge_id": "88293150#0",
+        "name": "88293150#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569569",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292194#0",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-88293321#2",
+        "name": "-88293321#2"
+      },
+      {
+        "edge_id": "88293321#1",
+        "name": "88293321#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569612",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1434595981#2",
+        "name": "-1434595981#2"
+      },
+      {
+        "edge_id": "1434595981#3",
+        "name": "1434595981#3"
+      },
+      {
+        "edge_id": "1434595981#1",
+        "name": "1434595981#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569635",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293330#1",
+        "name": "-88293330#1"
+      },
+      {
+        "edge_id": "88293330#0",
+        "name": "88293330#0"
+      },
+      {
+        "edge_id": "218670478",
+        "name": "218670478"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569654",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292185#1",
+        "name": "Merrill Heights"
+      },
+      {
+        "edge_id": "-88293442",
+        "name": "-88293442"
+      },
+      {
+        "edge_id": "88292185#0",
+        "name": "Merrill Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025569898",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88293563#0",
+        "name": "88293563#0"
+      },
+      {
+        "edge_id": "-88293563#1",
+        "name": "-88293563#1"
+      },
+      {
+        "edge_id": "88293442",
+        "name": "88293442"
+      }
+    ]
+  },
+  {
+    "junction_id": "1025570088",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899455#5",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-88293626",
+        "name": "-88293626"
+      },
+      {
+        "edge_id": "218899455#4",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "10848375481",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1166318934#1",
+        "name": "Falcon Market Place"
+      },
+      {
+        "edge_id": "1166318934#0",
+        "name": "Falcon Market Place"
+      },
+      {
+        "edge_id": "-1166318945",
+        "name": "-1166318945"
+      }
+    ]
+  },
+  {
+    "junction_id": "10848375485",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1166318934#4",
+        "name": "Falcon Market Place"
+      },
+      {
+        "edge_id": "-1360486786#0",
+        "name": "-1360486786#0"
+      },
+      {
+        "edge_id": "1166318934#3",
+        "name": "Falcon Market Place"
+      }
+    ]
+  },
+  {
+    "junction_id": "10884068626",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899446#7",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "218899446#6",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "-1171272414",
+        "name": "Maybeck Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "10884068629",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899446#6",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "218899446#5",
+        "name": "Maybeck View"
+      },
+      {
+        "edge_id": "1171272415",
+        "name": "Maybeck Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107027541",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-248490555",
+        "name": "Bolton Way Trail"
+      },
+      {
+        "edge_id": "-95474945#1",
+        "name": "Tamlin Road"
+      },
+      {
+        "edge_id": "95474945#0",
+        "name": "Tamlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107027552",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "95474946#0",
+        "name": "Spotswood Terrace"
+      },
+      {
+        "edge_id": "-95474949#0",
+        "name": "Wagon Track Way"
+      },
+      {
+        "edge_id": "-95474946#1",
+        "name": "Spotswood Terrace"
+      }
+    ]
+  },
+  {
+    "junction_id": "11740340262",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1263631456#2",
+        "name": "-1263631456#2"
+      },
+      {
+        "edge_id": "-1263631457",
+        "name": "-1263631457"
+      },
+      {
+        "edge_id": "1263631456#1",
+        "name": "1263631456#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "11740340263",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1263631457",
+        "name": "1263631457"
+      },
+      {
+        "edge_id": "218899463#2",
+        "name": "218899463#2"
+      },
+      {
+        "edge_id": "-1263631456#1",
+        "name": "-1263631456#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422332",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1166318934#3",
+        "name": "Falcon Market Place"
+      },
+      {
+        "edge_id": "1271111650#3",
+        "name": "1271111650#3"
+      },
+      {
+        "edge_id": "1166318934#2",
+        "name": "Falcon Market Place"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422337",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360486786#3",
+        "name": "1360486786#3"
+      },
+      {
+        "edge_id": "-1360486786#4",
+        "name": "-1360486786#4"
+      },
+      {
+        "edge_id": "1271111652",
+        "name": "1271111652"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422343",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1271111665",
+        "name": "1271111665"
+      },
+      {
+        "edge_id": "-1271111658#3",
+        "name": "-1271111658#3"
+      },
+      {
+        "edge_id": "1271111658#2",
+        "name": "1271111658#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422350",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1271111664",
+        "name": "1271111664"
+      },
+      {
+        "edge_id": "1271111655#2",
+        "name": "1271111655#2"
+      },
+      {
+        "edge_id": "-1271111665",
+        "name": "-1271111665"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422357",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1271111655#1",
+        "name": "1271111655#1"
+      },
+      {
+        "edge_id": "1271111657",
+        "name": "1271111657"
+      },
+      {
+        "edge_id": "-1271111655#2",
+        "name": "-1271111655#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422358",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1166318934#2",
+        "name": "Falcon Market Place"
+      },
+      {
+        "edge_id": "-1271111658#0",
+        "name": "-1271111658#0"
+      },
+      {
+        "edge_id": "1166318934#1",
+        "name": "Falcon Market Place"
+      }
+    ]
+  },
+  {
+    "junction_id": "11804422359",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1271111658#3",
+        "name": "1271111658#3"
+      },
+      {
+        "edge_id": "1271111662#2",
+        "name": "1271111662#2"
+      },
+      {
+        "edge_id": "-1271111658#4",
+        "name": "-1271111658#4"
+      }
+    ]
+  },
+  {
+    "junction_id": "11914873784",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1284299420#1",
+        "name": "-1284299420#1"
+      },
+      {
+        "edge_id": "-1284299421",
+        "name": "-1284299421"
+      },
+      {
+        "edge_id": "1284299420#0",
+        "name": "1284299420#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "11914873816",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1284299428",
+        "name": "-1284299428"
+      },
+      {
+        "edge_id": "-1284299427#2",
+        "name": "-1284299427#2"
+      },
+      {
+        "edge_id": "1284299427#1",
+        "name": "1284299427#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "11914883531",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-309362227#1",
+        "name": "-309362227#1"
+      },
+      {
+        "edge_id": "1284299662",
+        "name": "1284299662"
+      },
+      {
+        "edge_id": "309362227#0",
+        "name": "309362227#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "11914884276",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292194#2",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-896403211",
+        "name": "-896403211"
+      },
+      {
+        "edge_id": "88292194#1",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "11914884315",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020123#2",
+        "name": "-477020123#2"
+      },
+      {
+        "edge_id": "1284299792#3",
+        "name": "1284299792#3"
+      },
+      {
+        "edge_id": "477020123#1",
+        "name": "477020123#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "12588720765",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1359966364",
+        "name": "1359966364"
+      },
+      {
+        "edge_id": "-1359966365",
+        "name": "-1359966365"
+      },
+      {
+        "edge_id": "-1359966366",
+        "name": "-1359966366"
+      }
+    ]
+  },
+  {
+    "junction_id": "12591857861",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477167429#1",
+        "name": "-477167429#1"
+      },
+      {
+        "edge_id": "-1360229837",
+        "name": "-1360229837"
+      },
+      {
+        "edge_id": "477167429#0",
+        "name": "477167429#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12591857862",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1360229839",
+        "name": "-1360229839"
+      },
+      {
+        "edge_id": "1360229837",
+        "name": "1360229837"
+      },
+      {
+        "edge_id": "-1360229836",
+        "name": "-1360229836"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314715",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "218678723#3",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "1360480052#6",
+        "name": "1360480052#6"
+      },
+      {
+        "edge_id": "-218678723#4",
+        "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314724",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1360486786#1",
+        "name": "-1360486786#1"
+      },
+      {
+        "edge_id": "1360480052#2",
+        "name": "1360480052#2"
+      },
+      {
+        "edge_id": "1360486786#0",
+        "name": "1360486786#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314726",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1271111658#1",
+        "name": "-1271111658#1"
+      },
+      {
+        "edge_id": "1360480052#0",
+        "name": "1360480052#0"
+      },
+      {
+        "edge_id": "1271111658#0",
+        "name": "1271111658#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314756",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-79762504#1",
+        "name": "Greenough Road"
+      },
+      {
+        "edge_id": "1360480054#9",
+        "name": "1360480054#9"
+      },
+      {
+        "edge_id": "79762504#0",
+        "name": "Greenough Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314757",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#34",
+        "name": "7683191#34"
+      },
+      {
+        "edge_id": "1360480054#8",
+        "name": "1360480054#8"
+      },
+      {
+        "edge_id": "-7683191#35",
+        "name": "-7683191#35"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314758",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-7683191#1",
+        "name": "-7683191#1"
+      },
+      {
+        "edge_id": "1360480054#7",
+        "name": "1360480054#7"
+      },
+      {
+        "edge_id": "7683191#0",
+        "name": "7683191#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314761",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218678722#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "218678722#0",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "1360480054#2",
+        "name": "1360480054#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314787",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480055#2",
+        "name": "1360480055#2"
+      },
+      {
+        "edge_id": "-1434595981#1",
+        "name": "-1434595981#1"
+      },
+      {
+        "edge_id": "1434595981#0",
+        "name": "1434595981#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314788",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304047029#2",
+        "name": "304047029#2"
+      },
+      {
+        "edge_id": "-304047029#3",
+        "name": "-304047029#3"
+      },
+      {
+        "edge_id": "1360480055#7",
+        "name": "1360480055#7"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314789",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480055#3",
+        "name": "1360480055#3"
+      },
+      {
+        "edge_id": "-763002336#1",
+        "name": "-763002336#1"
+      },
+      {
+        "edge_id": "763002336#0",
+        "name": "763002336#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314790",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1157687718#1",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1157687718#0",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1360480055#6",
+        "name": "1360480055#6"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314801",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-309362227#2",
+        "name": "-309362227#2"
+      },
+      {
+        "edge_id": "1360480056#0",
+        "name": "1360480056#0"
+      },
+      {
+        "edge_id": "309362227#1",
+        "name": "309362227#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314802",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-7681077#1",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1360480056#1",
+        "name": "1360480056#1"
+      },
+      {
+        "edge_id": "7681077#0",
+        "name": "Chicago Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314867",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480060#5",
+        "name": "1360480060#5"
+      },
+      {
+        "edge_id": "897674898#0",
+        "name": "897674898#0"
+      },
+      {
+        "edge_id": "-897674898#1",
+        "name": "-897674898#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314868",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480060#6",
+        "name": "1360480060#6"
+      },
+      {
+        "edge_id": "88290007#1",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#2",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314870",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88290007#11",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "1360480060#8",
+        "name": "1360480060#8"
+      },
+      {
+        "edge_id": "-88290007#12",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314871",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88289922#1",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "1360480060#9",
+        "name": "1360480060#9"
+      },
+      {
+        "edge_id": "88289922#0",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314934",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020131#3",
+        "name": "-477020131#3"
+      },
+      {
+        "edge_id": "1360480062#14",
+        "name": "1360480062#14"
+      },
+      {
+        "edge_id": "477020131#2",
+        "name": "477020131#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314935",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899464#4",
+        "name": "-218899464#4"
+      },
+      {
+        "edge_id": "1360480062#12",
+        "name": "1360480062#12"
+      },
+      {
+        "edge_id": "218899464#3",
+        "name": "218899464#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314939",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88291250#0",
+        "name": "Foxtail Meadow Lane"
+      },
+      {
+        "edge_id": "1360480062#6",
+        "name": "1360480062#6"
+      },
+      {
+        "edge_id": "-88291250#1",
+        "name": "Foxtail Meadow Lane"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314940",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "897674898#2",
+        "name": "897674898#2"
+      },
+      {
+        "edge_id": "1360480062#3",
+        "name": "1360480062#3"
+      },
+      {
+        "edge_id": "-248490569",
+        "name": "Bolton Way Trail"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314941",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88290007#3",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "1360480062#2",
+        "name": "1360480062#2"
+      },
+      {
+        "edge_id": "-88290007#4",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314942",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290203#3",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "88290203#2",
+        "name": "Bridal Vail Way"
+      },
+      {
+        "edge_id": "1360480062#1",
+        "name": "1360480062#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314943",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88290893#1",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "88290893#0",
+        "name": "Indian Echo Terrace"
+      },
+      {
+        "edge_id": "1360480062#0",
+        "name": "1360480062#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314945",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88289922#7",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "1360480063#0",
+        "name": "1360480063#0"
+      },
+      {
+        "edge_id": "88289922#6",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314946",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88289922#9",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "1360480064#0",
+        "name": "1360480064#0"
+      },
+      {
+        "edge_id": "88289922#8",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "12594314974",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480066#0",
+        "name": "1360480066#0"
+      },
+      {
+        "edge_id": "-682566139#1",
+        "name": "-682566139#1"
+      },
+      {
+        "edge_id": "682566139#0",
+        "name": "682566139#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "13185912230",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-896403209#1",
+        "name": "-896403209#1"
+      },
+      {
+        "edge_id": "-1434595984",
+        "name": "-1434595984"
+      },
+      {
+        "edge_id": "896403209#0",
+        "name": "896403209#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "13185912232",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595978#0",
+        "name": "1434595978#0"
+      },
+      {
+        "edge_id": "-1434595978#1",
+        "name": "-1434595978#1"
+      },
+      {
+        "edge_id": "1434595984",
+        "name": "1434595984"
+      }
+    ]
+  },
+  {
+    "junction_id": "1550214881",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "189512167#1",
+        "name": "Flower Road"
+      },
+      {
+        "edge_id": "95474932#2",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "-189512167#2",
+        "name": "Flower Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1550214886",
+    "type": "traffic_light",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "218899452",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "896870295",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "-896870298",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1550214890",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88291250#2",
+        "name": "Foxtail Meadow Lane"
+      },
+      {
+        "edge_id": "-141624560#0",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "88291250#1",
+        "name": "Foxtail Meadow Lane"
+      }
+    ]
+  },
+  {
+    "junction_id": "1550214892",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-682566271#0",
+        "name": "-682566271#0"
+      },
+      {
+        "edge_id": "-141624560#2",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "141624560#1",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1692191375",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-400916788#0",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "1239144087",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "43866004",
+        "name": "Rock Island Regional Trail"
+      }
+    ]
+  },
+  {
+    "junction_id": "176392575",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "17015949",
+        "name": "17015949"
+      },
+      {
+        "edge_id": "-1416164908#0",
+        "name": "-1416164908#0"
+      },
+      {
+        "edge_id": "313510564",
+        "name": "313510564"
+      }
+    ]
+  },
+  {
+    "junction_id": "177293788",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1393596171",
+        "name": "1393596171"
+      },
+      {
+        "edge_id": "84662360",
+        "name": "Rose Avenue"
+      },
+      {
+        "edge_id": "-17076706",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "177813135",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1348336412",
+        "name": "-1348336412"
+      },
+      {
+        "edge_id": "131417596",
+        "name": "131417596"
+      },
+      {
+        "edge_id": "-204493383#1",
+        "name": "-204493383#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "1905775192",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1360480066#1",
+        "name": "1360480066#1"
+      },
+      {
+        "edge_id": "-141624560#1",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "141624560#0",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "1905775269",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1157687719#2",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "1157687719#1",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-189512167#0",
+        "name": "Flower Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "2001146764",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020123#0",
+        "name": "-477020123#0"
+      },
+      {
+        "edge_id": "218899451#7",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "-682566141#0",
+        "name": "-682566141#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "2002513628",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-189666883#2",
+        "name": "Wurster View"
+      },
+      {
+        "edge_id": "189666886",
+        "name": "Saynassalo Point"
+      },
+      {
+        "edge_id": "189666883#1",
+        "name": "Wurster View"
+      }
+    ]
+  },
+  {
+    "junction_id": "2002513669",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "401139262#1",
+        "name": "Vignola Heights"
+      },
+      {
+        "edge_id": "189666883#3",
+        "name": "Wurster View"
+      },
+      {
+        "edge_id": "-401139262#2",
+        "name": "Vignola Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "2279001353",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218670467#1",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "218670467#0",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "88293081",
+        "name": "Beinecke Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "2281042752",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020119",
+        "name": "-477020119"
+      },
+      {
+        "edge_id": "-218899464#3",
+        "name": "-218899464#3"
+      },
+      {
+        "edge_id": "218899464#2",
+        "name": "218899464#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "2281042759",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "189512167#0",
+        "name": "Flower Road"
+      },
+      {
+        "edge_id": "-218899463#0",
+        "name": "-218899463#0"
+      },
+      {
+        "edge_id": "-189512167#1",
+        "name": "Flower Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "2552741923",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "897674898#3",
+        "name": "Bolton Way Trail"
+      },
+      {
+        "edge_id": "380521628",
+        "name": "380521628"
+      },
+      {
+        "edge_id": "-248490775#0",
+        "name": "Bolton Way Trail"
+      }
+    ]
+  },
+  {
+    "junction_id": "3085711071",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304046921",
+        "name": "304046921"
+      },
+      {
+        "edge_id": "-304047025#0",
+        "name": "-304047025#0"
+      },
+      {
+        "edge_id": "-304047018#1",
+        "name": "-304047018#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "3085711254",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304047029#3",
+        "name": "304047029#3"
+      },
+      {
+        "edge_id": "1030097807#2",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "-1030097807#3",
+        "name": "Old Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "3085711385",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304046895",
+        "name": "304046895"
+      },
+      {
+        "edge_id": "-304047014",
+        "name": "-304047014"
+      },
+      {
+        "edge_id": "-304047029#1",
+        "name": "-304047029#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "3085711549",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304046972",
+        "name": "304046972"
+      },
+      {
+        "edge_id": "304046923",
+        "name": "304046923"
+      },
+      {
+        "edge_id": "-304047025#1",
+        "name": "-304047025#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "3085711624",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "304047018#1",
+        "name": "304047018#1"
+      },
+      {
+        "edge_id": "304047015#1",
+        "name": "304047015#1"
+      },
+      {
+        "edge_id": "-304047029#0",
+        "name": "-304047029#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "3146931596",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1030097807#1",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "309362227#2",
+        "name": "309362227#2"
+      },
+      {
+        "edge_id": "-1030097807#2",
+        "name": "Old Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "3758450220",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-751889545#0",
+        "name": "-751889545#0"
+      },
+      {
+        "edge_id": "372292804",
+        "name": "372292804"
+      },
+      {
+        "edge_id": "-773828749",
+        "name": "-773828749"
+      }
+    ]
+  },
+  {
+    "junction_id": "3838427811",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-380521628",
+        "name": "-380521628"
+      },
+      {
+        "edge_id": "88290007#7",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88290007#8",
+        "name": "Antelope Meadows Circle"
+      }
+    ]
+  },
+  {
+    "junction_id": "3838437205",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "248490775#1",
+        "name": "Bolton Way Trail"
+      },
+      {
+        "edge_id": "-380521629#1",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "380521629#0",
+        "name": "Woodmen Frontage Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "4034128689",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88291818#1",
+        "name": "88291818#1"
+      },
+      {
+        "edge_id": "400916837#0",
+        "name": "400916837#0"
+      },
+      {
+        "edge_id": "-88291818#2",
+        "name": "-88291818#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4034128716",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "400916840",
+        "name": "400916840"
+      },
+      {
+        "edge_id": "-218899458#1",
+        "name": "-218899458#1"
+      },
+      {
+        "edge_id": "218899458#0",
+        "name": "218899458#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4035945560",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "401139263",
+        "name": "401139263"
+      },
+      {
+        "edge_id": "401139257",
+        "name": "Bolton Way Trail"
+      },
+      {
+        "edge_id": "-248490775#1",
+        "name": "Bolton Way Trail"
+      }
+    ]
+  },
+  {
+    "junction_id": "4340533500",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "436179217#0",
+        "name": "436179217#0"
+      },
+      {
+        "edge_id": "-436179217#1",
+        "name": "-436179217#1"
+      },
+      {
+        "edge_id": "436179218",
+        "name": "436179218"
+      }
+    ]
+  },
+  {
+    "junction_id": "4340533704",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-436179217#2",
+        "name": "-436179217#2"
+      },
+      {
+        "edge_id": "-436179218",
+        "name": "-436179218"
+      },
+      {
+        "edge_id": "436179217#1",
+        "name": "436179217#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4340574291",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88291818#1",
+        "name": "-88291818#1"
+      },
+      {
+        "edge_id": "-436180326#0",
+        "name": "-436180326#0"
+      },
+      {
+        "edge_id": "88291818#0",
+        "name": "88291818#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4340579989",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "436180326#0",
+        "name": "436180326#0"
+      },
+      {
+        "edge_id": "436180326#2",
+        "name": "436180326#2"
+      },
+      {
+        "edge_id": "-436180326#1",
+        "name": "-436180326#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341017691",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "436229847#0",
+        "name": "436229847#0"
+      },
+      {
+        "edge_id": "436229848",
+        "name": "436229848"
+      },
+      {
+        "edge_id": "-436229847#1",
+        "name": "-436229847#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341021904",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-436229873#1",
+        "name": "-436229873#1"
+      },
+      {
+        "edge_id": "-436229874",
+        "name": "-436229874"
+      },
+      {
+        "edge_id": "436229873#0",
+        "name": "436229873#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341022391",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "436229853#0",
+        "name": "436229853#0"
+      },
+      {
+        "edge_id": "-436229853#1",
+        "name": "-436229853#1"
+      },
+      {
+        "edge_id": "-436229855",
+        "name": "-436229855"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341039700",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-436232873#0",
+        "name": "-436232873#0"
+      },
+      {
+        "edge_id": "88141354#5",
+        "name": "Bierstadt Heights"
+      },
+      {
+        "edge_id": "-88141354#6",
+        "name": "Bierstadt Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341039701",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "436232873#1",
+        "name": "436232873#1"
+      },
+      {
+        "edge_id": "-436232874",
+        "name": "-436232874"
+      },
+      {
+        "edge_id": "-436232873#2",
+        "name": "-436232873#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4341056890",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-436232873#1",
+        "name": "-436232873#1"
+      },
+      {
+        "edge_id": "436232873#2",
+        "name": "436232873#2"
+      },
+      {
+        "edge_id": "436232873#0",
+        "name": "436232873#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317694",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595977#3",
+        "name": "1434595977#3"
+      },
+      {
+        "edge_id": "-1434595977#0",
+        "name": "-1434595977#0"
+      },
+      {
+        "edge_id": "477020113",
+        "name": "477020113"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317698",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595974#1",
+        "name": "1434595974#1"
+      },
+      {
+        "edge_id": "477020129",
+        "name": "477020129"
+      },
+      {
+        "edge_id": "477020117",
+        "name": "477020117"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317708",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020117",
+        "name": "-477020117"
+      },
+      {
+        "edge_id": "-477020123#3",
+        "name": "-477020123#3"
+      },
+      {
+        "edge_id": "477020123#2",
+        "name": "477020123#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317729",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1434595974#0",
+        "name": "-1434595974#0"
+      },
+      {
+        "edge_id": "1434595980#2",
+        "name": "1434595980#2"
+      },
+      {
+        "edge_id": "477020123#3",
+        "name": "477020123#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317734",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "477020108",
+        "name": "477020108"
+      },
+      {
+        "edge_id": "477020132#1",
+        "name": "477020132#1"
+      },
+      {
+        "edge_id": "-477020132#2",
+        "name": "-477020132#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317735",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595977#2",
+        "name": "1434595977#2"
+      },
+      {
+        "edge_id": "-477020128",
+        "name": "-477020128"
+      },
+      {
+        "edge_id": "-1434595977#3",
+        "name": "-1434595977#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317742",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "477020131#4",
+        "name": "477020131#4"
+      },
+      {
+        "edge_id": "-477020131#2",
+        "name": "-477020131#2"
+      },
+      {
+        "edge_id": "477020131#1",
+        "name": "477020131#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317747",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "682566140#1",
+        "name": "682566140#1"
+      },
+      {
+        "edge_id": "-773828762#0",
+        "name": "-773828762#0"
+      },
+      {
+        "edge_id": "682566271#0",
+        "name": "682566271#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317748",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595977#1",
+        "name": "1434595977#1"
+      },
+      {
+        "edge_id": "477020128",
+        "name": "477020128"
+      },
+      {
+        "edge_id": "-1434595977#2",
+        "name": "-1434595977#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317755",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-896403208",
+        "name": "-896403208"
+      },
+      {
+        "edge_id": "1434595974#0",
+        "name": "1434595974#0"
+      },
+      {
+        "edge_id": "-477020129",
+        "name": "-477020129"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317765",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020110",
+        "name": "-477020110"
+      },
+      {
+        "edge_id": "1434595977#0",
+        "name": "1434595977#0"
+      },
+      {
+        "edge_id": "-1434595977#1",
+        "name": "-1434595977#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704317786",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477020131#4",
+        "name": "-477020131#4"
+      },
+      {
+        "edge_id": "477020119",
+        "name": "477020119"
+      },
+      {
+        "edge_id": "477020131#3",
+        "name": "477020131#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704318020",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "682566141#0",
+        "name": "682566141#0"
+      },
+      {
+        "edge_id": "773828762#12",
+        "name": "773828762#12"
+      },
+      {
+        "edge_id": "-682566140#0",
+        "name": "-682566140#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704318044",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "682566141#1",
+        "name": "682566141#1"
+      },
+      {
+        "edge_id": "682566271#1",
+        "name": "682566271#1"
+      },
+      {
+        "edge_id": "682566139#1",
+        "name": "682566139#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4704318045",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1434595980#2",
+        "name": "-1434595980#2"
+      },
+      {
+        "edge_id": "477020132#2",
+        "name": "477020132#2"
+      },
+      {
+        "edge_id": "1434595980#1",
+        "name": "1434595980#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4705580413",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "477167429#3",
+        "name": "477167429#3"
+      },
+      {
+        "edge_id": "477167429#1",
+        "name": "477167429#1"
+      },
+      {
+        "edge_id": "-477167429#2",
+        "name": "-477167429#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4705580420",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-477167429#0",
+        "name": "-477167429#0"
+      },
+      {
+        "edge_id": "-380521629#2",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "380521629#1",
+        "name": "Woodmen Frontage Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "4705580421",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "477167430#0",
+        "name": "477167430#0"
+      },
+      {
+        "edge_id": "477167430#2",
+        "name": "477167430#2"
+      },
+      {
+        "edge_id": "-477167430#1",
+        "name": "-477167430#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "4705580424",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "791711880#4",
+        "name": "791711880#4"
+      },
+      {
+        "edge_id": "477167430#1",
+        "name": "477167430#1"
+      },
+      {
+        "edge_id": "-477167430#2",
+        "name": "-477167430#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "4705580425",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-380521629#3",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "380521629#2",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "-477167430#0",
+        "name": "-477167430#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "557043490",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "43866005#1",
+        "name": "43866005#1"
+      },
+      {
+        "edge_id": "-1434595981#3",
+        "name": "-1434595981#3"
+      },
+      {
+        "edge_id": "1434595981#2",
+        "name": "1434595981#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "557043540",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "43866005#0",
+        "name": "43866005#0"
+      },
+      {
+        "edge_id": "43866006",
+        "name": "43866006"
+      },
+      {
+        "edge_id": "-43866005#1",
+        "name": "-43866005#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "557043635",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "400916775#1",
+        "name": "400916775#1"
+      },
+      {
+        "edge_id": "-624576098#1",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "400916788#1",
+        "name": "Rock Island Regional Trail"
+      }
+    ]
+  },
+  {
+    "junction_id": "557043676",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-400916771",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "624576098#1",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "43866010",
+        "name": "43866010"
+      }
+    ]
+  },
+  {
+    "junction_id": "55723007",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1157687718#2",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "1157687718#1",
+        "name": "Chicago Avenue"
+      },
+      {
+        "edge_id": "763002336#1",
+        "name": "763002336#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "55776303",
+    "type": "traffic_light",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899457",
+        "name": "-218899457"
+      },
+      {
+        "edge_id": "218899458#1",
+        "name": "218899458#1"
+      },
+      {
+        "edge_id": "218652297#1",
+        "name": "East Woodmen Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "55792229",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "88291733",
+        "name": "88291733"
+      },
+      {
+        "edge_id": "-7683191#2",
+        "name": "-7683191#2"
+      },
+      {
+        "edge_id": "7683191#1",
+        "name": "7683191#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "55830068",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-624576096#0",
+        "name": "Rock Island Regional Trail"
+      },
+      {
+        "edge_id": "1030097807#0",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "-1030097807#1",
+        "name": "Old Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "55846531",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218678723#2",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "7683191#35",
+        "name": "7683191#35"
+      },
+      {
+        "edge_id": "218678723#1",
+        "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271819",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#3",
+        "name": "-773828762#3"
+      },
+      {
+        "edge_id": "682566142",
+        "name": "682566142"
+      },
+      {
+        "edge_id": "773828762#2",
+        "name": "773828762#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271821",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-682566155#1",
+        "name": "-682566155#1"
+      },
+      {
+        "edge_id": "682566155#0",
+        "name": "682566155#0"
+      },
+      {
+        "edge_id": "-682566142",
+        "name": "-682566142"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271822",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#4",
+        "name": "-773828762#4"
+      },
+      {
+        "edge_id": "682566143",
+        "name": "682566143"
+      },
+      {
+        "edge_id": "773828762#3",
+        "name": "773828762#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271824",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-682566155#2",
+        "name": "-682566155#2"
+      },
+      {
+        "edge_id": "682566155#1",
+        "name": "682566155#1"
+      },
+      {
+        "edge_id": "-682566143",
+        "name": "-682566143"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271826",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#10",
+        "name": "-773828762#10"
+      },
+      {
+        "edge_id": "-682566144",
+        "name": "-682566144"
+      },
+      {
+        "edge_id": "773828762#9",
+        "name": "773828762#9"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271827",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#12",
+        "name": "-773828762#12"
+      },
+      {
+        "edge_id": "682566145",
+        "name": "682566145"
+      },
+      {
+        "edge_id": "773828762#11",
+        "name": "773828762#11"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271829",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899451#6",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "218899451#5",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "682566146",
+        "name": "682566146"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271831",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#9",
+        "name": "-773828762#9"
+      },
+      {
+        "edge_id": "682566148",
+        "name": "682566148"
+      },
+      {
+        "edge_id": "773828762#8",
+        "name": "773828762#8"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271833",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218899451#3",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "218899451#2",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "682566150",
+        "name": "682566150"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271836",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#7",
+        "name": "-773828762#7"
+      },
+      {
+        "edge_id": "682566152",
+        "name": "682566152"
+      },
+      {
+        "edge_id": "773828762#6",
+        "name": "773828762#6"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271841",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-773828762#5",
+        "name": "-773828762#5"
+      },
+      {
+        "edge_id": "682566154",
+        "name": "682566154"
+      },
+      {
+        "edge_id": "773828762#4",
+        "name": "773828762#4"
+      }
+    ]
+  },
+  {
+    "junction_id": "6392271842",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-682566155#3",
+        "name": "-682566155#3"
+      },
+      {
+        "edge_id": "682566155#2",
+        "name": "682566155#2"
+      },
+      {
+        "edge_id": "-682566154",
+        "name": "-682566154"
+      }
+    ]
+  },
+  {
+    "junction_id": "6927636274",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292194#1",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292194#0",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "739856216#2",
+        "name": "739856216#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "6927649691",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "739856217#0",
+        "name": "739856217#0"
+      },
+      {
+        "edge_id": "739856217#2",
+        "name": "739856217#2"
+      },
+      {
+        "edge_id": "-739856217#1",
+        "name": "-739856217#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "6953565034",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-742800579#1",
+        "name": "-742800579#1"
+      },
+      {
+        "edge_id": "742800579#0",
+        "name": "742800579#0"
+      },
+      {
+        "edge_id": "742800579#2",
+        "name": "742800579#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "6961416118",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#28",
+        "name": "7683191#28"
+      },
+      {
+        "edge_id": "743790144",
+        "name": "743790144"
+      },
+      {
+        "edge_id": "-7683191#29",
+        "name": "-7683191#29"
+      }
+    ]
+  },
+  {
+    "junction_id": "7028341546",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "751841742#2",
+        "name": "751841742#2"
+      },
+      {
+        "edge_id": "-751841743",
+        "name": "-751841743"
+      },
+      {
+        "edge_id": "-751841742#3",
+        "name": "-751841742#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "7028341552",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-751841742#2",
+        "name": "-751841742#2"
+      },
+      {
+        "edge_id": "751841742#3",
+        "name": "751841742#3"
+      },
+      {
+        "edge_id": "751841742#1",
+        "name": "751841742#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "7028773542",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-751889545#1",
+        "name": "-751889545#1"
+      },
+      {
+        "edge_id": "751889545#0",
+        "name": "751889545#0"
+      },
+      {
+        "edge_id": "773828764#1",
+        "name": "773828764#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "7035160076",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-752905039",
+        "name": "-752905039"
+      },
+      {
+        "edge_id": "-218899455#6",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "218899455#5",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "7035160077",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-752905040#1",
+        "name": "-752905040#1"
+      },
+      {
+        "edge_id": "752905039",
+        "name": "752905039"
+      },
+      {
+        "edge_id": "752905040#0",
+        "name": "752905040#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "7134877214",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292199#3",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "88292199#2",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "763534278",
+        "name": "763534278"
+      }
+    ]
+  },
+  {
+    "junction_id": "7168587213",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-767779811",
+        "name": "-767779811"
+      },
+      {
+        "edge_id": "767779810",
+        "name": "767779810"
+      },
+      {
+        "edge_id": "218899459",
+        "name": "218899459"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138326",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-7683191#20",
+        "name": "-7683191#20"
+      },
+      {
+        "edge_id": "-436180329",
+        "name": "-436180329"
+      },
+      {
+        "edge_id": "7683191#19",
+        "name": "7683191#19"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138414",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#31",
+        "name": "7683191#31"
+      },
+      {
+        "edge_id": "773828752",
+        "name": "773828752"
+      },
+      {
+        "edge_id": "-7683191#32",
+        "name": "-7683191#32"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138415",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#30",
+        "name": "7683191#30"
+      },
+      {
+        "edge_id": "-773828753",
+        "name": "-773828753"
+      },
+      {
+        "edge_id": "-7683191#31",
+        "name": "-7683191#31"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138416",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "773828753",
+        "name": "773828753"
+      },
+      {
+        "edge_id": "-7683191#5",
+        "name": "-7683191#5"
+      },
+      {
+        "edge_id": "7683191#4",
+        "name": "7683191#4"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138417",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#29",
+        "name": "7683191#29"
+      },
+      {
+        "edge_id": "-773828754",
+        "name": "-773828754"
+      },
+      {
+        "edge_id": "-7683191#30",
+        "name": "-7683191#30"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138418",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "773828754",
+        "name": "773828754"
+      },
+      {
+        "edge_id": "-7683191#6",
+        "name": "-7683191#6"
+      },
+      {
+        "edge_id": "7683191#5",
+        "name": "7683191#5"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138419",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#27",
+        "name": "7683191#27"
+      },
+      {
+        "edge_id": "-773828755",
+        "name": "-773828755"
+      },
+      {
+        "edge_id": "-7683191#28",
+        "name": "-7683191#28"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138421",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#26",
+        "name": "7683191#26"
+      },
+      {
+        "edge_id": "-773828756",
+        "name": "-773828756"
+      },
+      {
+        "edge_id": "-7683191#27",
+        "name": "-7683191#27"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138422",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "773828756",
+        "name": "773828756"
+      },
+      {
+        "edge_id": "-7683191#11",
+        "name": "-7683191#11"
+      },
+      {
+        "edge_id": "7683191#10",
+        "name": "7683191#10"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138423",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#25",
+        "name": "7683191#25"
+      },
+      {
+        "edge_id": "-773828757",
+        "name": "-773828757"
+      },
+      {
+        "edge_id": "-7683191#26",
+        "name": "-7683191#26"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138424",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#24",
+        "name": "7683191#24"
+      },
+      {
+        "edge_id": "-773828758",
+        "name": "-773828758"
+      },
+      {
+        "edge_id": "-7683191#25",
+        "name": "-7683191#25"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138425",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "773828758",
+        "name": "773828758"
+      },
+      {
+        "edge_id": "-7683191#13",
+        "name": "-7683191#13"
+      },
+      {
+        "edge_id": "7683191#12",
+        "name": "7683191#12"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138426",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#23",
+        "name": "7683191#23"
+      },
+      {
+        "edge_id": "-773828759",
+        "name": "-773828759"
+      },
+      {
+        "edge_id": "-7683191#24",
+        "name": "-7683191#24"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138428",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#22",
+        "name": "7683191#22"
+      },
+      {
+        "edge_id": "-773828760",
+        "name": "-773828760"
+      },
+      {
+        "edge_id": "-7683191#23",
+        "name": "-7683191#23"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138430",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "7683191#21",
+        "name": "7683191#21"
+      },
+      {
+        "edge_id": "-773828761",
+        "name": "-773828761"
+      },
+      {
+        "edge_id": "-7683191#22",
+        "name": "-7683191#22"
+      }
+    ]
+  },
+  {
+    "junction_id": "7223138431",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "773828761",
+        "name": "773828761"
+      },
+      {
+        "edge_id": "-7683191#18",
+        "name": "-7683191#18"
+      },
+      {
+        "edge_id": "7683191#17",
+        "name": "7683191#17"
+      }
+    ]
+  },
+  {
+    "junction_id": "7226577229",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1098805460#0",
+        "name": "-1098805460#0"
+      },
+      {
+        "edge_id": "88173956#1",
+        "name": "88173956#1"
+      },
+      {
+        "edge_id": "-88173956#2",
+        "name": "-88173956#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "7401425302",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-791711880#0",
+        "name": "-791711880#0"
+      },
+      {
+        "edge_id": "-477167429#3",
+        "name": "-477167429#3"
+      },
+      {
+        "edge_id": "477167429#2",
+        "name": "477167429#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "7401425305",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-791711880#3",
+        "name": "-791711880#3"
+      },
+      {
+        "edge_id": "936275499",
+        "name": "936275499"
+      },
+      {
+        "edge_id": "791711880#2",
+        "name": "791711880#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "7543417184",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-791711880#1",
+        "name": "-791711880#1"
+      },
+      {
+        "edge_id": "936275498",
+        "name": "936275498"
+      },
+      {
+        "edge_id": "791711880#0",
+        "name": "791711880#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "7739083708",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-1030097806#1",
+        "name": "-1030097806#1"
+      },
+      {
+        "edge_id": "-829086879",
+        "name": "-829086879"
+      },
+      {
+        "edge_id": "1030097806#0",
+        "name": "1030097806#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332861503",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-896403209#0",
+        "name": "-896403209#0"
+      },
+      {
+        "edge_id": "-88292194#5",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292194#4",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332861504",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-896403210",
+        "name": "-896403210"
+      },
+      {
+        "edge_id": "896403209#1",
+        "name": "896403209#1"
+      },
+      {
+        "edge_id": "-1434595976",
+        "name": "-1434595976"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332861515",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595976",
+        "name": "1434595976"
+      },
+      {
+        "edge_id": "-1434595978#0",
+        "name": "-1434595978#0"
+      },
+      {
+        "edge_id": "896403210",
+        "name": "896403210"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332872326",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1434595985#2",
+        "name": "1434595985#2"
+      },
+      {
+        "edge_id": "1434595985#0",
+        "name": "1434595985#0"
+      },
+      {
+        "edge_id": "-1434595985#1",
+        "name": "-1434595985#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "8332872328",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "1284299428",
+        "name": "1284299428"
+      },
+      {
+        "edge_id": "-1284299427#1",
+        "name": "-1284299427#1"
+      },
+      {
+        "edge_id": "1284299427#0",
+        "name": "1284299427#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "8335009441",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "774521674#0",
+        "name": "774521674#0"
+      },
+      {
+        "edge_id": "896658149#1",
+        "name": "896658149#1"
+      },
+      {
+        "edge_id": "774521676#1",
+        "name": "774521676#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "8335009446",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "774521674#1",
+        "name": "774521674#1"
+      },
+      {
+        "edge_id": "-896658151#0",
+        "name": "-896658151#0"
+      },
+      {
+        "edge_id": "774521676#0",
+        "name": "774521676#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "8335009448",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "896658151#0",
+        "name": "896658151#0"
+      },
+      {
+        "edge_id": "-1284299666",
+        "name": "-1284299666"
+      },
+      {
+        "edge_id": "-896658151#1",
+        "name": "-896658151#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "8336624497",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-141624560#4",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "-896870290#0",
+        "name": "-896870290#0"
+      },
+      {
+        "edge_id": "141624560#3",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "8336624511",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-896870295",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "896870296",
+        "name": "896870296"
+      },
+      {
+        "edge_id": "896870299",
+        "name": "Meridian Market View"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675705375",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-791711880#2",
+        "name": "-791711880#2"
+      },
+      {
+        "edge_id": "-936275497#0",
+        "name": "-936275497#0"
+      },
+      {
+        "edge_id": "791711880#1",
+        "name": "791711880#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675705376",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "936275497#0",
+        "name": "936275497#0"
+      },
+      {
+        "edge_id": "-936275497#1",
+        "name": "-936275497#1"
+      },
+      {
+        "edge_id": "806678280",
+        "name": "806678280"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675705377",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-791711881",
+        "name": "-791711881"
+      },
+      {
+        "edge_id": "936275497#2",
+        "name": "936275497#2"
+      },
+      {
+        "edge_id": "791711880#3",
+        "name": "791711880#3"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675705378",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-936275497#2",
+        "name": "-936275497#2"
+      },
+      {
+        "edge_id": "936275497#1",
+        "name": "936275497#1"
+      },
+      {
+        "edge_id": "-936275499",
+        "name": "-936275499"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675785754",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "936284661#0",
+        "name": "936284661#0"
+      },
+      {
+        "edge_id": "-936284661#1",
+        "name": "-936284661#1"
+      },
+      {
+        "edge_id": "936284661#2",
+        "name": "936284661#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "8675785765",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292199#1",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "88292199#0",
+        "name": "State Bank Drive"
+      },
+      {
+        "edge_id": "936284663",
+        "name": "936284663"
+      }
+    ]
+  },
+  {
+    "junction_id": "930999017",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218678723#3",
+        "name": "Mclaughlin Road"
+      },
+      {
+        "edge_id": "-79762504#0",
+        "name": "Greenough Road"
+      },
+      {
+        "edge_id": "218678723#2",
+        "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "9342059633",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-742800579#0",
+        "name": "-742800579#0"
+      },
+      {
+        "edge_id": "1034951450#0",
+        "name": "Meridian Sol Drive"
+      },
+      {
+        "edge_id": "-1034951450#1",
+        "name": "Meridian Sol Drive"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1550214898_2281042760",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "218899453",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "218899454",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "189512167#2",
+        "name": "Flower Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1692191404_4035945557",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "401139261",
+        "name": "Quandary Grove"
+      },
+      {
+        "edge_id": "-380521629#5",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "380521629#3",
+        "name": "Woodmen Frontage Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1692191412_4035945567",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-380521629#7",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "380521629#5",
+        "name": "Woodmen Frontage Road"
+      },
+      {
+        "edge_id": "401139258",
+        "name": "Vignola Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2001146752_2001146753",
+    "type": "traffic_light",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218816683#3",
+        "name": "-218816683#3"
+      },
+      {
+        "edge_id": "218816683#1",
+        "name": "218816683#1"
+      },
+      {
+        "edge_id": "1017920809#2",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_8336624499_8336624500",
+    "type": "right_before_left",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "896870291",
+        "name": "896870291"
+      },
+      {
+        "edge_id": "896870290#1",
+        "name": "896870290#1"
+      },
+      {
+        "edge_id": "896870294",
+        "name": "896870294"
+      }
+    ]
+  },
+  {
+    "junction_id": "1024108387",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-218899456#0",
+        "name": "-218899456#0"
+      },
+      {
+        "edge_id": "218899457",
+        "name": "218899457"
+      }
+    ]
+  },
+  {
+    "junction_id": "12253760703",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1359894763#0",
+        "name": "East Fountain Boulevard"
+      },
+      {
+        "edge_id": "-1359894763#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "12253760706",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1387930319#0",
+        "name": "East Fountain Boulevard"
+      },
+      {
+        "edge_id": "-1387930319#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "176403833",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "527605658",
+        "name": "527605658"
+      },
+      {
+        "edge_id": "-1416164908#1",
+        "name": "-1416164908#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "176421348",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1416164908#1",
+        "name": "1416164908#1"
+      },
+      {
+        "edge_id": "-1416164908#2",
+        "name": "-1416164908#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "177318465",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-119057168",
+        "name": "North Poplar Street"
+      },
+      {
+        "edge_id": "119057103",
+        "name": "North Poplar Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "177342056",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-27637918#2",
+        "name": "Harrison Avenue"
+      },
+      {
+        "edge_id": "27637918#1",
+        "name": "Harrison Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "177344602",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-27637918#1",
+        "name": "Harrison Avenue"
+      },
+      {
+        "edge_id": "844433572",
+        "name": "Harrison Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "177448752",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "813328255",
+        "name": "813328255"
+      },
+      {
+        "edge_id": "813326941",
+        "name": "813326941"
+      }
+    ]
+  },
+  {
+    "junction_id": "178161232",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1262590331",
+        "name": "1262590331"
+      },
+      {
+        "edge_id": "-778369425#1",
+        "name": "-778369425#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "55797656",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-218816683#1",
+        "name": "-218816683#1"
+      },
+      {
+        "edge_id": "218816683#0",
+        "name": "218816683#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "55797698",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "-301006588#1",
+        "name": "-301006588#1"
+      },
+      {
+        "edge_id": "301006588#0",
+        "name": "301006588#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "5971821588",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "778369425#1",
+        "name": "778369425#1"
+      },
+      {
+        "edge_id": "-778369425#2",
+        "name": "-778369425#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "639424885",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1409966281",
+        "name": "West Cimarron Street"
+      },
+      {
+        "edge_id": "-1413014887",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "962806348",
+    "type": "traffic_light",
+    "num_legs": 2,
+    "approaches": [
+      {
+        "edge_id": "1387930319#1",
+        "name": "East Fountain Boulevard"
+      },
+      {
+        "edge_id": "-1359894763#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "1014926790",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "652353420",
+        "name": "652353420"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107010978",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006763",
+        "name": "301006763"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107010983",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006765#1",
+        "name": "301006765#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107013253",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "892887694",
+        "name": "892887694"
+      }
+    ]
+  },
+  {
+    "junction_id": "1107013254",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006765#0",
+        "name": "301006765#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "11384294933",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1300165238",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "11384294934",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "99032567#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "11623839520",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239052#0",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "1162821306",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "100574869#3",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1162821489",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "238694432#2",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1162823958",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "238694432#0",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1162824217",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "100574869#5",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "1164583616",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1388009662",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "12026862042",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "99032567#2",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "12026862044",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "877757463#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "12026862045",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "877757471#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "12899771732",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "119057177#2",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "12899771736",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "117319352#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "13069734720",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "36910012#0",
+        "name": "East Platte Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "1692460871",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1060322785#0",
+        "name": "1060322785#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "178161222",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "179901513",
+        "name": "179901513"
+      }
+    ]
+  },
+  {
+    "junction_id": "178161345",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239069#0",
+        "name": "222239069#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "178161348",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239072",
+        "name": "222239072"
+      }
+    ]
+  },
+  {
+    "junction_id": "1980659713",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1392529862",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "2010206802",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "82695927#1",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "2085206017",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "121940603#0",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "2085206793",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "121045624#0",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "2101143983",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1076362463",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "3507460673",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343965017#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "3507473606",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343964956#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "429002011",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006767#2",
+        "name": "301006767#2"
+      }
+    ]
+  },
+  {
+    "junction_id": "429004246",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006767#0",
+        "name": "301006767#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "431490055",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "229626973",
+        "name": "Midland Expressway"
+      }
+    ]
+  },
+  {
+    "junction_id": "452148751",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "95471457#0",
+        "name": "95471457#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "4933457902",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1111241340#1",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "4985640982",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1111241340#0",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "4985640987",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "502989756#0",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "55782183",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239071",
+        "name": "222239071"
+      }
+    ]
+  },
+  {
+    "junction_id": "55787254",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239052#1",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "55797581",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1392529863#1",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "55797628",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239064",
+        "name": "222239064"
+      }
+    ]
+  },
+  {
+    "junction_id": "5928375962",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1411132868",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "6408309229",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "238694432#1",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "6422383763",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "100574869#4",
+        "name": "Meridian Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "6463275080",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "301006767#1",
+        "name": "301006767#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "675444965",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239070",
+        "name": "Midland Expressway"
+      }
+    ]
+  },
+  {
+    "junction_id": "7003669550",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "748911032",
+        "name": "748911032"
+      }
+    ]
+  },
+  {
+    "junction_id": "7606796536",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "229624408#0",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "7606796537",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1396137422#0",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "817652486",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239066#1",
+        "name": "222239066#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "817652585",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "222239066#0",
+        "name": "222239066#0"
+      }
+    ]
+  },
+  {
+    "junction_id": "817652622",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "990290687#1",
+        "name": "990290687#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "817652653",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "106298085",
+        "name": "106298085"
+      }
+    ]
+  },
+  {
+    "junction_id": "962704866",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1300165230",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962791803",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "82695927#0",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962795599",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "99032567#3",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962796107",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "99032567#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962796123",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1300165232#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962802843",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "888358407",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962803674",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "82698442#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962803686",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1064293963",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "962804428",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1064293959",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1113930522_12026862043",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "877757471#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_11623839519_2312199576",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "655930227",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12899771730_12899771735",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "119057177#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_12899771731_12899771733",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343965029#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_177311578_3507460661_3507460691",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343964890#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_177311580_3507460692",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343964885#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_177316149_3507473092_3507473602",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343964972#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_177468752_3042510846_3042510853",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "300145513#0",
+        "name": "Main Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_177468859_3042510848_3042510856",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "300399183#0",
+        "name": "Main Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2010207372_962796759",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1300165233#0",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2085205861_962697793",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "121045624#1",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2085206489_962696368",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1300188115#0",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2101143868_962699932",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1076362462#1",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2101143895_962693076",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1076362460",
+        "name": "South Powers Boulevard"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_2381930286_2381930296_4253647700",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "1396137422#1",
+        "name": "West Cimarron Street"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_3507473604_8945584576",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "343964898#0",
+        "name": "Rose Avenue"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_439958080_6463275081",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "95471457#1",
+        "name": "95471457#1"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_8988608756_8988608757",
+    "type": "traffic_light",
+    "num_legs": 1,
+    "approaches": [
+      {
+        "edge_id": "82698442#1",
+        "name": "East Fountain Boulevard"
+      }
+    ]
+  }
+]
