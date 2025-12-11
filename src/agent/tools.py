@@ -373,7 +373,7 @@ def generate_traffic_demand(
 
 
 @tool
-def map_volume_to_topology(net_file: "/tmp/map.net.xml", candidates_json_path: str="/tmp/candidates.json", target_streets: str):
+def map_volume_to_topology(net_file:str= "/tmp/map.net.xml", candidates_json_path: str="/tmp/candidates.json", target_streets: str):
     """
     Matches the specific intersection from the Excel data to the Map candidates.
     Determines Edge IDs for NB, SB, EB, WB and SAVES the result to '/tmp/final_mapping.json'.
