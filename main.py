@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
+
 from src.api.v1.agent_router import router as agent_router
 from src.config.settings import get_settings
 
@@ -20,6 +22,8 @@ app.add_middleware(
 
 app.include_router(agent_router)
 
+handler = Mangum(app)
+
 @app.get('/')
 def root():
     return {"message": "Welcome to TIA Agent API"}
@@ -30,4 +34,4 @@ def health():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
