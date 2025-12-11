@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.api.v1.agent_router import router as agent_router
-from src.api.v1.status_router import router as status_router
 from src.config.settings import get_settings
 
 app = FastAPI(title="TIA Agent API")
