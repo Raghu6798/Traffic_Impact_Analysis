@@ -61,7 +61,7 @@ async def chat_agent(request: ChatRequest):
 @router.post("/api/v1/upload_traffic_data")
 async def upload_traffic_data(file: UploadFile = File(...)):
     try:
-        upload_dir = "data/uploads"
+        upload_dir =  f"/tmp/{file.filename}" 
         os.makedirs(upload_dir, exist_ok=True)
         
         file_location = f"{upload_dir}/{file.filename}"
