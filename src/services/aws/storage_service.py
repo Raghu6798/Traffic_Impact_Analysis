@@ -2,6 +2,8 @@ import os
 import boto3
 from botocore.exceptions import ClientError
 
+from src.utils.logger import logger
+
 try:
     s3_client = boto3.client('s3')
 except Exception as e:
