@@ -369,7 +369,7 @@ def map_volume_to_topology(
     """
     Matches intersection from Excel data to Map candidates.
     Args:
-        target_streets: Comma-separated list of street names (e.g., "Woodmen, Meridian").
+        target_streets: Comma-separated list of street names (e.g., "Woodmen, Meridian"). whatever roads the user mentions in the prompt , don't include Road, or Rd , just keep the names as (Woodmen, Meridian) if the user mentions Meridian Road and Woodman Road or whatever the user mentions. Not (Woodmen Rd,Meridian Rd) . (Woodmen,Meridian) is the correct one 
         net_file: Path to map network file.
         candidates_json_path: Path to candidates JSON.
     """

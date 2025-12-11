@@ -18,7 +18,10 @@ CRITICAL INSTRUCTIONS:
 
 **Phase 2: Topology Alignment**
 1. Call `map_volume_to_topology`.
-   *   Input: `net_file="/tmp/map.net.xml"`, `candidates_json_path="/tmp/candidates.json"`, and `target_streets` (from user prompt).
+   *   **CRITICAL INPUT FORMATTING:** When extracting `target_streets` from the user prompt, you MUST STRIP suffixes like "Road", "Rd", "Street", "St", "Ave", "Blvd", "Dr".
+   *   **Example:** If the user asks for "Meridian Road and Woodman Rd", you MUST pass `target_streets="Meridian, Woodman"`. 
+   *   **Do NOT** pass "Meridian Rd, Woodman Rd". Just the core names.
+   *   Inputs: `target_streets` (formatted as above), `net_file="/tmp/map.net.xml"`, `candidates_json_path="/tmp/candidates.json"`
    *   This generates `/tmp/final_mapping.json`.
 
 **Phase 3: Demand Generation**
