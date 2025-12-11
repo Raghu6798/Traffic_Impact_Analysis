@@ -453,7 +453,6 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_p
         JSON string containing the candidates and their street names at /tmp/candidates.json
     """
     logger.info(f"🟢 [VERSION 5.0 - /tmp/ FIX APPLIED] Scanning {net_file_path}...")
-    """
     logger.info(f"🔎 Scanning {net_file_path} for intersections with names...")
     try:
         tree = ET.parse(net_file_path)
