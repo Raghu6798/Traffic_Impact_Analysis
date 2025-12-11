@@ -343,7 +343,7 @@ def generate_traffic_demand(
 def map_volume_to_topology(net_file: "/tmp/map.net.xml", candidates_json_path: str="/tmp/candidates.json", target_streets: str):
     """
     Matches the specific intersection from the Excel data to the Map candidates.
-    Determines Edge IDs for NB, SB, EB, WB and SAVES the result to 'final_mapping.json'.
+    Determines Edge IDs for NB, SB, EB, WB and SAVES the result to '/tmp/final_mapping.json'.
     
     Args:
         net_file: Path to /tmp/map.net.xml
@@ -441,7 +441,7 @@ def map_volume_to_topology(net_file: "/tmp/map.net.xml", candidates_json_path: s
     return json.dumps(final_output, indent=2)
 
 @tool
-def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml"):
+def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml",output_path: str = "/tmp/candidates.json"):
     """
     Scans the map for valid intersections and extracts STREET NAMES 
     to allow matching with the Traffic Count Excel file.
