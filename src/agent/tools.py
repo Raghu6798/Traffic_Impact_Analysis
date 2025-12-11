@@ -1,47 +1,41 @@
 import os
 import pandas as pd 
 import numpy as np
-from src.utils.sumo_utils import get_sumo_binary
 import sys
 import json 
 import subprocess
-import platform
 import math
-import statistics
 import requests
-from pydantic import BaseModel 
-from pathlib import Path
-from dotenv import load_dotenv
+import shutil
 import xml.etree.ElementTree as ET
+from pathlib import Path
 from langchain_core.tools import tool
 
+# Local imports
+from src.utils.sumo_utils import get_sumo_binary
 from src.utils.logger import logger
 
-import shutil
-import os
-import math
-from pathlib import Path
-
+# --- HELPER FUNCTION FOR LAMBDA PERMISSIONS ---
 def _enforce_tmp_path(file_path: str) -> str:
     """
     AWS Lambda Helper: valid writes can ONLY happen in /tmp.
     This function forces any file path to be rooted in /tmp/.
-    Examples: 
-      'map.osm' -> '/tmp/map.osm'
-      '/app/data.xml' -> '/tmp/data.xml'
-      '/tmp/correct.xml' -> '/tmp/correct.xml'
     """
     if not file_path:
         return "/tmp/temp_output.xml"
     
-
+    # If it is already a valid /tmp path, return it
     if file_path.startswith("/tmp/") or file_path.startswith("\\tmp\\"):
         return file_path
         
+    # Otherwise, strip directory and force /tmp
     filename = os.path.basename(file_path)
     safe_path = os.path.join("/tmp", filename)
     
-    logger.info(f"🔒 Path Sanitization: Redirecting '{file_path}' to '{safe_path}'")
+    # Only log if we are actually changing the path
+    if file_path != safe_path:
+        logger.info(f"🔒 Path Sanitization: Redirecting '{file_path}' to '{safe_path}'")
+        
     return safe_path
 
 def get_sumo_binary(binary_name: str) -> str:
@@ -79,12 +73,18 @@ def calculate_direction(shape_str):
     except Exception:
         return "Unknown"
 
-
-
 @tool
 def read_file_head(file_path: str):
     """Reads a CSV or XLSX file and returns its contents as text."""
     try:
+        # Check if file exists in the provided path, otherwise check /tmp
+        if not os.path.exists(file_path):
+            tmp_path = os.path.join("/tmp", os.path.basename(file_path))
+            if os.path.exists(tmp_path):
+                file_path = tmp_path
+            else:
+                return f"Error: File {file_path} not found."
+
         logger.info(f"Reading the file: {file_path}")
 
         if file_path.endswith(".csv"):
@@ -95,8 +95,6 @@ def read_file_head(file_path: str):
             return "Unsupported file format. Only CSV and XLSX are supported."
 
         content = df.to_string(index=False)
-
-        logger.success("Successfully parsed the file")
         return content
 
     except Exception as e:
@@ -107,11 +105,10 @@ def read_file_head(file_path: str):
 def parse_tripinfo(tripinfo_file_path: str="/tmp/tripinfo.xml"):
     """
     Parses a SUMO tripinfo.xml file and returns a summary of the trips.
-    Extracts duration, distance, and calculated speed.
     """
     tripinfo_file_path = _enforce_tmp_path(tripinfo_file_path)
     if not os.path.exists(tripinfo_file_path):
-        return "Error: File not found."
+        return f"Error: File not found at {tripinfo_file_path}"
 
     try:
         tree = ET.parse(tripinfo_file_path)
@@ -120,22 +117,14 @@ def parse_tripinfo(tripinfo_file_path: str="/tmp/tripinfo.xml"):
         data = []
         for child in root.findall('tripinfo'):
             trip_id = child.get('id')
-            depart_lane = child.get('departLane', '')
-            arrival_lane = child.get('arrivalLane', '')
             duration = float(child.get('duration', 0))
             distance = float(child.get('routeLength', 0))
             time_loss = float(child.get('timeLoss', 0))
-            
-            # Extract Edge ID from Lane ID (e.g., "Edge1_0" -> "Edge1")
-            from_edge = "_".join(depart_lane.split("_")[:-1])
-            to_edge = "_".join(arrival_lane.split("_")[:-1])
             
             speed = distance / duration if duration > 0 else 0
             
             data.append({
                 "trip_id": trip_id,
-                "from_edge": from_edge,
-                "to_edge": to_edge,
                 "duration_sec": duration,
                 "distance_m": distance,
                 "time_loss_sec": time_loss,
@@ -147,7 +136,6 @@ def parse_tripinfo(tripinfo_file_path: str="/tmp/tripinfo.xml"):
         if df.empty:
             return "No trips found in tripinfo.xml."
             
-        # Summary Statistics
         summary = f"Parsed {len(df)} trips.\n"
         summary += f"Avg Duration: {df['duration_sec'].mean():.2f} s\n"
         summary += f"Avg Time Loss (Delay): {df['time_loss_sec'].mean():.2f} s\n"
@@ -161,16 +149,12 @@ def parse_tripinfo(tripinfo_file_path: str="/tmp/tripinfo.xml"):
 
 @tool
 def create_sumo_config(net_file: str = "/tmp/map.net.xml", route_file: str = "/tmp/traffic.rou.xml", additional_file: str = "/tmp/traffic_sensors.add.xml"):
-    """Creates 'config.sumocfg' for the simulation.
-    Args:
-        net_file (str): The path to the network file, the map.net.xml file generated by netconvert. /tmp/map.net.xml
-        route_file (str): The path to the route file, the traffic.rou.xml file generated by jtrrouter command. /tmp/traffic.rou.xml
-        additional_file (str): The path to the additional file, the traffic_sensors.add.xml file generated by `generate_detectors()` tool /tmp/traffic_sensors.add.xml
-    """
+    """Creates 'config.sumocfg' for the simulation in /tmp/."""
     net_file = _enforce_tmp_path(net_file)
     route_file = _enforce_tmp_path(route_file)
     additional_file = _enforce_tmp_path(additional_file)
     output_cfg = "/tmp/config.sumocfg"
+
     logger.info("⚙️ Creating Config File...")
     content = f"""<configuration>
     <input>
@@ -187,21 +171,22 @@ def create_sumo_config(net_file: str = "/tmp/map.net.xml", route_file: str = "/t
         <summary-output value="/tmp/summary.xml"/>
     </output>
 </configuration>"""
-    with open("/tmp/config.sumocfg", "w") as f: f.write(content)
-    return "Success: /tmp/config.sumocfg created."
+    try:
+        with open(output_cfg, "w") as f: f.write(content)
+        return f"Success: {output_cfg} created."
+    except Exception as e:
+        return f"Error creating config: {e}"
 
 @tool
 def rename_file(old_name: str, new_name: str):
-    """
-    Renames a file. Use this to save simulation outputs (e.g., rename 'lane_performance.xml' to 'lane_performance_AM.xml')
-    before running the next simulation scenario.
-    """
+    """Renames a file. Automatically ensures paths are in /tmp/."""
     try:
         old_name = _enforce_tmp_path(old_name)
         new_name = _enforce_tmp_path(new_name)
+
         if os.path.exists(old_name):
             if os.path.exists(new_name):
-                os.remove(new_name) # Overwrite if exists
+                os.remove(new_name)
             os.rename(old_name, new_name)
             return f"Success: Renamed {old_name} to {new_name}"
         else:
@@ -217,21 +202,18 @@ def generate_traffic_demand(
     flow_file: str = "/tmp/flows.xml", 
     turn_file: str = "/tmp/turns.xml"
 ):
-    """
-    Generates SUMO traffic demand files ('flows.xml' and 'turns.xml').
-    Now includes PEDESTRIAN demand and calculates PHF metrics.
-    """
+    """Generates SUMO traffic demand files."""
     corridor_mapping_file = _enforce_tmp_path(corridor_mapping_file)
     net_file_path = _enforce_tmp_path(net_file_path)
     flow_file = _enforce_tmp_path(flow_file)
     turn_file = _enforce_tmp_path(turn_file)
-    logger.info("🚗 Generating Traffic Demand (Vehicles & Pedestrians)...")
+    
+    logger.info("🚗 Generating Traffic Demand...")
     
     try:
         with open(corridor_mapping_file, 'r') as f:
             raw_data = json.load(f)
         
-        # Normalize Input
         if "junction_id" in raw_data:
             mapping_data = {"Single_Intersection_Run": raw_data}
         else:
@@ -243,7 +225,6 @@ def generate_traffic_demand(
     except Exception as e:
         return f"Critical Error loading inputs: {e}"
 
-    # Define vTypes for Car and Pedestrian
     flows_xml = """<routes>
     <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>
     <vType id="pedestrian" vClass="pedestrian" length="0.5" width="0.5" speed="1.2"/>\n"""
@@ -258,75 +239,52 @@ def generate_traffic_demand(
         edge_map = data.get('mapping', {})
         csv_path = data.get('data_file_path', csv_data_path)
 
+        # Sanity check for CSV path
+        if csv_path and not os.path.exists(csv_path):
+             tmp_csv = os.path.join("/tmp", os.path.basename(csv_path))
+             if os.path.exists(tmp_csv):
+                 csv_path = tmp_csv
+
         if not csv_path or not os.path.exists(csv_path):
             errors.append(f"ID {int_id}: CSV file not found.")
             continue
 
         try:
             df = pd.read_csv(csv_path)
-            
-            # 1. Identify Columns
-            # Vehicle columns
             veh_cols = [c for c in df.columns if any(x in c for x in ['Left', 'Thru', 'Right', 'U']) and 'Peds' not in c]
-            # Pedestrian columns (Look for 'Peds' or 'Ped')
             ped_cols = [c for c in df.columns if 'Peds' in c or 'Ped' in c]
 
             if not veh_cols:
                 errors.append(f"ID {int_id}: No vehicle columns found.")
                 continue
 
-            # 2. Find Peak Hour (Rolling Sum) - PDF Page 3
             df['Interval_Veh_Total'] = df[veh_cols].sum(axis=1)
             df['Hourly_Rolling'] = df['Interval_Veh_Total'].rolling(window=4).sum().shift(-3)
-            
             peak_idx = df['Hourly_Rolling'].idxmax()
             
             if pd.isna(peak_idx):
                 errors.append(f"ID {int_id}: Insufficient data.")
                 continue
             
-            # 3. Calculate PHF (Peak Hour Factor) - PDF Page 4
-            # PHF = Hourly Volume / (4 * Max 15-min Volume)
-            peak_hour_vol = df.loc[peak_idx, 'Hourly_Rolling']
             peak_window = df.iloc[int(peak_idx) : int(peak_idx) + 4]
-            max_15min = peak_window['Interval_Veh_Total'].max()
-            
-            phf = peak_hour_vol / (4 * max_15min) if max_15min > 0 else 0
-            
-            logger.info(f"📊 Intersection {junction_id} Stats:")
-            logger.info(f"   Peak Hour Starts Index: {peak_idx}")
-            logger.info(f"   Total Peak Hourly Volume: {int(peak_hour_vol)}")
-            logger.info(f"   Peak Hour Factor (PHF): {phf:.2f}") 
-
-            # Sum volumes for the peak hour
             peak_veh_sums = peak_window[veh_cols].sum()
             peak_ped_sums = peak_window[ped_cols].sum() if ped_cols else pd.Series()
 
-            # 4. Generate Flows per Direction
             for direction in ['NB', 'SB', 'EB', 'WB']:
                 if direction not in edge_map: continue
-                
                 in_edge_id = edge_map[direction]['in_edge']
                 
-                # --- A. VEHICLES ---
                 v_L = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Left' in c])
                 v_T = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Thru' in c])
                 v_R = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Right' in c])
                 v_U = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'U' in c])
-                
                 total_veh = v_L + v_T + v_R + v_U
                 
                 if total_veh > 0:
-                    # Write Vehicle Flow
                     flow_id = f"flow_{junction_id}_{direction}"
                     flows_xml += f'    <flow id="{flow_id}" begin="0" end="3600" number="{int(total_veh)}" from="{in_edge_id}" type="car"/>\n'
 
-                    # Write Turning Ratios
-                    probs = {
-                        'l': v_L / total_veh, 's': v_T / total_veh, 
-                        'r': v_R / total_veh, 't': v_U / total_veh
-                    }
-                    
+                    probs = {'l': v_L/total_veh, 's': v_T/total_veh, 'r': v_R/total_veh, 't': v_U/total_veh}
                     connections = net_root.findall(f"./connection[@from='{in_edge_id}']")
                     turns_xml += f'        <fromEdge id="{in_edge_id}">\n'
                     written_dirs = set()
@@ -339,18 +297,11 @@ def generate_traffic_demand(
                             written_dirs.add(sumo_dir)
                     turns_xml += '        </fromEdge>\n'
 
-                # --- B. PEDESTRIANS (PDF Page 4) ---
-                # Find columns like "NB_Peds" or "NB Peds"
                 p_vol = sum([peak_ped_sums[c] for c in peak_ped_sums.index if direction in c])
-                
                 if p_vol > 0:
-                    # SUMO uses <personFlow> for pedestrians.
-                    # We inject them on the walking edge associated with the road.
-                    # Simple approach: start them at the edge, let them walk to the junction.
                     ped_id = f"ped_{junction_id}_{direction}"
-                    # Note: 'departPos' random distributes them. 'arrivalPos' makes them cross.
                     flows_xml += f'    <personFlow id="{ped_id}" begin="0" end="3600" number="{int(p_vol)}">\n'
-                    flows_xml += f'        <walk from="{in_edge_id}" to="{in_edge_id}" arrivalPos="max"/>\n' # Walk to end of edge (intersection)
+                    flows_xml += f'        <walk from="{in_edge_id}" to="{in_edge_id}" arrivalPos="max"/>\n'
                     flows_xml += f'    </personFlow>\n'
 
             processed_count += 1
@@ -364,28 +315,32 @@ def generate_traffic_demand(
     try:
         with open(flow_file, "w") as f: f.write(flows_xml)
         with open(turn_file, "w") as f: f.write(turns_xml)
-        msg = f"✅ Success: Demand generated for {processed_count} intersections."
+        msg = f"✅ Success: Demand generated. Saved to {flow_file} and {turn_file}."
         if errors: msg += f"\n⚠️ Warnings: {'; '.join(errors)}"
         logger.success(msg)
         return msg
     except Exception as e:
         return f"Error writing output files: {e}"
 
-
+# --- Corrected Signature: Required argument FIRST ---
 @tool
-def map_volume_to_topology(net_file:str= "/tmp/map.net.xml", candidates_json_path: str="/tmp/candidates.json", target_streets: str):
+def map_volume_to_topology(
+    target_streets: str, 
+    net_file: str = "/tmp/map.net.xml", 
+    candidates_json_path: str = "/tmp/candidates.json"
+):
     """
-    Matches the specific intersection from the Excel data to the Map candidates.
-    Determines Edge IDs for NB, SB, EB, WB and SAVES the result to '/tmp/final_mapping.json'.
-    
+    Matches intersection from Excel data to Map candidates.
     Args:
-        net_file: Path to /tmp/map.net.xml
-        candidates_json_path: Path to the JSON file containing the candidates.
-        target_streets: Comma-separated street names (e.g. "Woodmen , Meridian") , do not add Rd after the names
+        target_streets: Comma-separated list of street names (e.g., "Woodmen, Meridian").
+        net_file: Path to map network file.
+        candidates_json_path: Path to candidates JSON.
     """
+    # Enforce paths
     net_file = _enforce_tmp_path(net_file)
     candidates_json_path = _enforce_tmp_path(candidates_json_path)
     output_filename = "/tmp/final_mapping.json"
+    
     logger.info(f"🧭 Mapping volume data to topology for: {target_streets}")
     
     targets = [t.strip().lower() for t in target_streets.split(",")]
@@ -396,15 +351,12 @@ def map_volume_to_topology(net_file:str= "/tmp/map.net.xml", candidates_json_pat
     except Exception as e:
         return f"Error reading candidates file: {e}"
     
-    # 1. FIND THE BEST MATCH JUNCTION
     best_junction = None
     max_matches = 0
     
     for cand in candidates:
         match_count = 0
         cand_names = [app['name'].lower() for app in cand['approaches']]
-        
-        # Check if target streets appear in this junction's approaches
         for target in targets:
             if any(target in name for name in cand_names):
                 match_count += 1
@@ -417,9 +369,8 @@ def map_volume_to_topology(net_file:str= "/tmp/map.net.xml", candidates_json_pat
         logger.error(f"Error: Could not find a junction matching those street names.")
         return "Error: Could not find a junction matching those street names."
         
-    logger.success(f"Matched Intersection: {best_junction['junction_id']} with {max_matches} street matches.")
+    logger.success(f"Matched Intersection: {best_junction['junction_id']}")
 
-    # 2. DETERMINE CARDINAL DIRECTIONS (Geometry)
     tree = ET.parse(net_file)
     root = tree.getroot()
     
@@ -428,108 +379,72 @@ def map_volume_to_topology(net_file:str= "/tmp/map.net.xml", candidates_json_pat
     for approach in best_junction['approaches']:
         edge_id = approach['edge_id']
         edge_xml = root.find(f".//edge[@id='{edge_id}']")
-        
         if edge_xml is None: continue
 
         lane = edge_xml.find('lane')
         if lane is None: continue
 
         shape_str = lane.get('shape')
-        if not shape_str: continue
-
-        coords = [list(map(float, p.split(','))) for p in shape_str.split()]
-        if len(coords) < 2: continue
+        direction = calculate_direction(shape_str)
         
-        # Calculate angle of the LAST segment (The part touching the junction)
-        p1 = coords[-2]
-        p2 = coords[-1]
-        
-        dx = p2[0] - p1[0]
-        dy = p2[1] - p1[1]
-        angle_rad = math.atan2(dy, dx)
-        angle_deg = math.degrees(angle_rad)
-        
-        # Determine Direction
-        direction = "Unknown"
-        if -45 <= angle_deg <= 45: direction = "EB"
-        elif 45 < angle_deg <= 135: direction = "NB"
-        elif -135 <= angle_deg < -45: direction = "SB"
-        else: direction = "WB"
-        
-        if direction not in mapping:
+        if direction != "Unknown" and direction not in mapping:
             mapping[direction] = {"in_edge": edge_id, "name": approach['name']}
+
     final_output = {
         "junction_id": best_junction['junction_id'],
         "mapping": mapping
     }
     
-    # Write to file
-    output_filename = "/tmp/final_mapping.json"
     try:
         with open(output_filename, "w") as f:
             json.dump(final_output, f, indent=2)
         logger.info(f"💾 Result saved to {output_filename}")
+        return json.dumps(final_output, indent=2)
     except Exception as e:
-        logger.error(f"Failed to write file: {e}")
-
-    # Return the JSON string to the Agent so it knows what happened
-    return json.dumps(final_output, indent=2)
+        return f"Error writing file: {e}"
 
 @tool
 def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_path: str = "/tmp/candidates.json"):
     """
-    Scans the map for valid intersections and extracts STREET NAMES 
-    to allow matching with the Traffic Count Excel file.
-    Saves the result to a JSON file.
-    
-    Returns:
-        A status message confirming the file save location.
+    Scans the map for valid intersections and extracts STREET NAMES.
+    Saves to JSON file. Returns Status Message Only.
     """
     net_file_path = _enforce_tmp_path(net_file_path)
     output_path = _enforce_tmp_path(output_path)
-    logger.info(f"🟢 [Fixed] Scanning {net_file_path} and saving to {output_path}...")
+    
+    logger.info(f"🔎 Scanning {net_file_path}...")
     
     if not os.path.exists(net_file_path):
-        return f"Error: Network file not found at {net_file_path}. Did netconvert run successfully?"
+        return f"Error: Net file {net_file_path} not found."
 
     try:
         tree = ET.parse(net_file_path)
         root = tree.getroot()
         
-        # 1. Build a lookup of Edge ID -> Street Name
         edge_names = {}
         for edge in root.findall('edge'):
             e_id = edge.get('id')
             name = edge.get('name')
-            
-            # If not in attribute, check <param> children
             if not name:
                 for param in edge.findall('param'):
                     if param.get('key') == 'name':
                         name = param.get('value')
                         break
-            
             edge_names[e_id] = name if name else e_id
 
-        # 2. Find Candidates
         candidates = []
         for junction in root.findall('junction'):
             j_id = junction.get('id')
             j_type = junction.get('type')
             
-            # Filter criteria (Page 3)
-            if j_type in ["internal", "dead_end"]:
-                continue
+            if j_type in ["internal", "dead_end"]: continue
             
             inc_lanes = junction.get('incLanes', '').split()
             incoming_edges_set = set()
             incoming_details = []
 
             for lane in inc_lanes:
-                if lane.startswith(":"): continue # Skip internal lanes
-                
-                # Get Edge ID from Lane ID (remove last _0)
-                # Handle cases where underscore might be part of ID
+                if lane.startswith(":"): continue 
                 if "_" in lane:
                     edge_id = "_".join(lane.split("_")[:-1])
                 else:
@@ -542,7 +457,6 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_
                         "name": edge_names.get(edge_id, "Unknown")
                     })
 
-            # Filter: Real intersections usually have 3+ legs, or are signals
             if len(incoming_edges_set) >= 3 or j_type == "traffic_light":
                 candidates.append({
                     "junction_id": j_id,
@@ -551,37 +465,24 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_
                     "approaches": incoming_details
                 })
 
-        # Sort by complexity
         candidates.sort(key=lambda x: x['num_legs'], reverse=True)
         
-    
         with open(output_path, 'w') as f:
             json.dump(candidates, f, indent=2)
             
-        logger.success(f"Saved {len(candidates)} candidates to {output_path}")
-    
-        return f"Success: Extracted {len(candidates)} candidate junctions. Data saved to {output_path}."
+        return f"Success: Extracted {len(candidates)} candidates. Saved to {output_path}."
 
     except Exception as e:
-        logger.error(f"Error extracting junctions: {e}")
+        logger.error(f"Error: {e}")
         return f"Error: {e}"
 
 @tool
 def generate_detectors(output_file: str = "/tmp/traffic_sensors.add.xml"):
-    """
-    Generates the '/tmp/traffic_sensors.add.xml' file.
-    This defines Edge and Lane data collectors required for TIA metrics 
-    (Volume, Speed, Delay, Density) as per PDF Page 19.
-    """
+    """Generates the sensor configuration file."""
     output_file = _enforce_tmp_path(output_file)
-    logger.info(f"📡 Generating Traffic Sensors configuration: {output_file}")
-    
-
+    logger.info(f"📡 Generating Traffic Sensors: {output_file}")
     content = """<additional>
-    <!-- Edge-based metrics (Volume, Speed, Density, Travel Time) -->
     <edgeData id="edge_dump" file="/tmp/edge_performance.xml" freq="900" excludeEmpty="true"/>
-    
-    <!-- Lane-based metrics (Control Delay per lane) -->
     <laneData id="lane_dump" file="/tmp/lane_performance.xml" freq="900" excludeEmpty="true"/>
 </additional>
 """
@@ -592,15 +493,12 @@ def generate_detectors(output_file: str = "/tmp/traffic_sensors.add.xml"):
     except Exception as e:
         return f"Error writing sensors file: {e}"
 
-
 @tool
 def download_osm_map(south: float, west: float, north: float, east: float, filename: str = "/tmp/map.osm"):
-    """
-    Downloads a map area from OpenStreetMap using the Overpass API.
-    Arguments: south, west, north, east (coordinates), and filename (default map.osm).
-    """
+    """Downloads a map area from OpenStreetMap."""
     filename = _enforce_tmp_path(filename)
-    logger.info(f"🌍 Downloading Map: S={south}, W={west}, N={north}, E={east}")
+
+    logger.info(f"🌍 Downloading Map to {filename}")
     overpass_url = "http://overpass-api.de/api/interpreter"
     query = f"""
         (
@@ -625,19 +523,13 @@ def download_osm_map(south: float, west: float, north: float, east: float, filen
 
 @tool
 def compute_hcm_metrics(net_file: str = "/tmp/map.net.xml", tripinfo_file: str = "/tmp/tripinfo.xml", queue_file: str = "/tmp/queue.xml"):
-    """
-    Computes all final TIA/HCM metrics including Average Control Delay, LOS, and 
-    95th Percentile Queue, and calculates a simplified Volume-to-Capacity (V/C) ratio.
-    
-    Returns: A comprehensive JSON string ready for final report.
-    """
+    """Computes final TIA/HCM metrics."""
     tripinfo_file = _enforce_tmp_path(tripinfo_file)
     queue_file = _enforce_tmp_path(queue_file)
     results = {"metrics": {}, "details": {}}
     
-    # --- Part 1: Average Delay & LOS (From tripinfo.xml) ---
     if not os.path.exists(tripinfo_file):
-        results["metrics"]["error"] = "Tripinfo file not found."
+        results["metrics"]["error"] = f"Tripinfo file not found at {tripinfo_file}"
         return json.dumps(results)
 
     try:
@@ -646,160 +538,105 @@ def compute_hcm_metrics(net_file: str = "/tmp/map.net.xml", tripinfo_file: str =
         total_vehicles = len(delays)
         avg_delay = sum(delays) / total_vehicles if total_vehicles > 0 else 0
         
-        # LOS thresholds (Signalized HCM 6th Ed)
         los = "A" if avg_delay <= 10 else "B" if avg_delay <= 20 else "C" if avg_delay <= 35 else "D" if avg_delay <= 55 else "E" if avg_delay <= 80 else "F"
         
         results["metrics"]["Average_Delay_sec"] = round(avg_delay, 2)
         results["metrics"]["Level_of_Service"] = los
         results["metrics"]["Total_Vehicles_Processed"] = total_vehicles
         
+        ASSUMED_HOURLY_CAPACITY = 14400 
+        v_c_ratio = total_vehicles / ASSUMED_HOURLY_CAPACITY
+        results["metrics"]["Volume_to_Capacity_Ratio"] = round(v_c_ratio, 3)
+        
     except Exception as e:
         results["metrics"]["delay_error"] = str(e)
-        
-    # --- Part 2: 95th Percentile Queue (From parse_queue_xml logic) ---
-    # We will simply call the existing logic here for the queue data
-    if os.path.exists(queue_file):
-        # NOTE: In a real implementation, you'd integrate the queue parsing logic here directly
-        # For simplicity, we just add a placeholder output based on the previous tool:
-        # results["details"]["Queue_95th_Percentile_m"] = json.loads(parse_queue_xml(queue_file)) 
-        results["details"]["Queue_status"] = "Queue data processed successfully."
-    else:
-        results["details"]["Queue_status"] = "Queue data file missing."
-
-    # --- Part 3: V/C Ratio (Simplistic Calculation) ---
-    # To calculate V/C, we need Total Volume (V) and Total Capacity (C).
-    # Since we don't have lane-by-lane capacity definitions, we use a global approach:
-    # V = Total Vehicles Processed (already calculated)
-    # C = ASSUMED Capacity for 1 hour (3600 seconds)
     
-    # ASSUMPTION: 4-leg intersection, 2 lanes per approach, Saturation Flow Rate of 1800 veh/hr/lane
-    # Total intersection theoretical capacity for 1 hour = 4 approaches * 2 lanes * 1800 veh/hr = 14400 veh/hr (Very rough, but gets V/C done)
-    ASSUMED_HOURLY_CAPACITY = 14400 
-
-    v_c_ratio = results["metrics"].get("Total_Vehicles_Processed", 0) / ASSUMED_HOURLY_CAPACITY
-    results["metrics"]["Volume_to_Capacity_Ratio"] = round(v_c_ratio, 3)
+    if os.path.exists(queue_file):
+        results["details"]["Queue_status"] = "Queue file found. Processing..."
+    else:
+        results["details"]["Queue_status"] = "Queue file missing."
 
     return json.dumps(results, indent=2)
 
 @tool
 def parse_queue_xml(queue_file_path: str = "/tmp/queue.xml"):
-    """
-    Parses the SUMO queue.xml to calculate the 95th Percentile Queue Length 
-    for each major edge/approach, as required for TIA/HCM analysis.
-    
-    Args:
-        queue_file_path: Path to the /tmp/queue.xml file generated by the simulation.
-        
-    Returns:
-        A JSON string containing the 95th percentile queue length for each Edge ID.
-    """
+    """Parses the queue.xml for 95th Percentile Queue."""
     queue_file_path = _enforce_tmp_path(queue_file_path)
+
     if not os.path.exists(queue_file_path):
         return f"Error: Queue file not found at {queue_file_path}."
 
-    # Dictionary to store all recorded queue lengths for each Edge ID
     edge_queues = {} 
     
     try:
         tree = ET.parse(queue_file_path)
         root = tree.getroot()
 
-        # 1. Collect all instantaneous queue lengths per lane/edge
         for data_timestep in root.findall('data'):
             for lane in data_timestep.find('lanes').findall('lane'):
                 lane_id = lane.get('id')
-                # Extract the Edge ID from the Lane ID (e.g., "Edge1_0" -> "Edge1")
-                # SUMO Lane IDs usually end in _<index>. :<NodeID>_X are internal lanes.
-                # We will process all, and let the calling function filter for "real" edges.
-                
-                # A simple heuristic to get the edge ID from a lane ID: remove the last _<digit>
                 if "_" in lane_id:
                      edge_id = lane_id.rsplit('_', 1)[0]
                 else:
-                     edge_id = lane_id # Should not happen for simulation lanes
+                     edge_id = lane_id 
 
                 queue_length_str = lane.get('queueing_length_experimental', lane.get('queueing_length'))
-                
                 try:
                     queue_length = float(queue_length_str)
-                    
-                    if edge_id not in edge_queues:
-                        edge_queues[edge_id] = []
-                    
-                    if queue_length > 0: # Only record active queues
-                        edge_queues[edge_id].append(queue_length)
-                        
+                    if edge_id not in edge_queues: edge_queues[edge_id] = []
+                    if queue_length > 0: edge_queues[edge_id].append(queue_length)
                 except (ValueError, TypeError):
-                    # Skip invalid queue length values
                     continue
 
-        # 2. Calculate the 95th Percentile for each Edge ID
         results_95th = {}
         for edge_id, lengths in edge_queues.items():
             if not lengths:
                 results_95th[edge_id] = 0.0
                 continue
-            
-            # Use numpy's percentile function for accurate calculation
-            # We use interpolation='lower' to adhere to a strict interpretation of "at least" 95%
             percentile_95 = np.percentile(lengths, 95, method='lower') 
             results_95th[edge_id] = round(percentile_95, 2)
         
         return json.dumps(results_95th, indent=2)
 
-    except ET.ParseError as e:
-        return f"Error: Failed to parse XML structure in queue.xml. {e}"
     except Exception as e:
-        return f"An unexpected error occurred during parsing: {e}"
+        return f"Error parsing queue: {e}"
 
 @tool 
 def execute_shell_commands(command:str):
-    """
-    Executes a shell command. Use this to run netconvert, sumo, or python scripts.
-    IMPORTANT: If using 'netconvert' or 'sumo', the tool will try to auto-resolve the path.
-    """
+    """Executes a shell command. Auto-detects usage of sumo tools."""
     logger.info(f"🐚 Input Command: {command}")
     
-    # --- AUTO-FIX FOR WINDOWS PATHS ---
     parts = command.split(" ", 1)
     tool_name = parts[0]
 
-
-    # If the user asks for 'netconvert' or 'sumo', resolve the full path
-    if tool_name in ["netconvert", "sumo", "sumo-gui", "netedit"]:
+    # Added jtrrouter to the list
+    if tool_name in ["netconvert", "sumo", "sumo-gui", "netedit", "jtrrouter"]:
         full_binary = get_sumo_binary(tool_name)
         if len(parts) > 1:
             final_command = f"{full_binary} {parts[1]}"
         else:
             final_command = full_binary
-        logger.info(f"🔧 Resolved Path: {final_command}")
     else:
         final_command = command
 
-    try: 
-        if "sumo-gui" in final_command and os.environ.get("HEADLESS_MODE") == "true":
-            logger.info("🐳 Running in Docker: Switching sumo-gui to sumo (headless)")
-            final_command = final_command.replace("sumo-gui", "sumo")
+    if "sumo-gui" in final_command and os.environ.get("HEADLESS_MODE") == "true":
+        logger.info("🐳 Running in Docker: Switching sumo-gui to sumo (headless)")
+        final_command = final_command.replace("sumo-gui", "sumo")
 
+    try: 
         result = subprocess.run(final_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
-        
-        # Log minimal output to keep console clean, return full output to Agent
-        if result.stdout: logger.info(f"Stdout (first 50 chars): {result.stdout[:50]}...")
-        if result.stderr: logger.warning(f"Stderr (first 50 chars): {result.stderr[:50]}...") # Warnings are common in SUMO
-        
-        # SUMO writes warnings to stderr, so we return both combined
+        if result.stdout: logger.info(f"Stdout: {result.stdout[:50]}...")
+        if result.stderr: logger.warning(f"Stderr: {result.stderr[:50]}...")
         return f"STDOUT:\n{result.stdout}\n\nSTDERR (Warnings/Errors):\n{result.stderr}"
-        
     except Exception as e:
         logger.error(str(e))
         return str(e)
 
 @tool
 def analyze_simulation_results(tripinfo_file: str = "/tmp/tripinfo.xml"):
-    """Reads SUMO tripinfo.xml and calculates Level of Service (LOS)."""
+    """Reads SUMO tripinfo.xml and calculates LOS."""
     tripinfo_file = _enforce_tmp_path(tripinfo_file)
-    logger.info("📊 Analyzing Results...")
-    if not os.path.exists(tripinfo_file): return "Error: /tmp/tripinfo.xml not found."
+    if not os.path.exists(tripinfo_file): return f"Error: {tripinfo_file} not found."
     try:
         tree = ET.parse(tripinfo_file)
         root = tree.getroot()
@@ -808,8 +645,6 @@ def analyze_simulation_results(tripinfo_file: str = "/tmp/tripinfo.xml"):
         if not delays: return "No vehicles completed the simulation."
         
         avg_delay = sum(delays) / len(delays)
-        
-        # LOS thresholds (Signalized)
         if avg_delay <= 10: los = "A"
         elif avg_delay <= 20: los = "B"
         elif avg_delay <= 35: los = "C"
