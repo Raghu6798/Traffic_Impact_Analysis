@@ -875,4 +875,4 @@
         <edge id="95474932#2" sampledSeconds="215.50" traveltime="8.77" overlapTraveltime="9.37" density="1.77" overlapDensity="1.90" laneDensity="0.89" occupancy="0.45" waitingTime="0.00" timeLoss="16.66" speed="14.02" speedRelative="0.90" departed="0" arrived="0" entered="23" left="23" laneChangedFrom="2" laneChangedTo="2" flow="89.49"/>
         <edge id="95475018" sampledSeconds="84.49" traveltime="6.90" overlapTraveltime="7.68" density="1.65" overlapDensity="1.83" laneDensity="1.65" occupancy="0.79" waitingTime="0.00" timeLoss="33.73" speed="7.32" speedRelative="0.53" departed="0" arrived="0" entered="11" left="11" laneChangedFrom="0" laneChangedTo="0" flow="43.40"/>
     </interval>
-</meandata>
+</meandata></meandata>

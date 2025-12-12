@@ -2695,4 +2695,4 @@
             <lane id="95475018_0" sampledSeconds="84.49" traveltime="6.90" overlapTraveltime="7.68" density="1.65" overlapDensity="1.83" laneDensity="1.65" occupancy="0.79" waitingTime="0.00" timeLoss="33.73" speed="7.32" speedRelative="0.53" departed="0" arrived="0" entered="11" left="11" laneChangedFrom="0" laneChangedTo="0" flow="43.40"/>
         </edge>
     </interval>
-</meandata>
+</meandata></meandata>
