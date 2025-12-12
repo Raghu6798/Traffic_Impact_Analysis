@@ -590,77 +590,75 @@ def map_volume_to_topology(net_file: str, candidates_json_path: str, target_stre
     return json.dumps(final_output, indent=2)
 
 @tool
-def extract_candidate_junctions(net_file_path: str = "map.net.xml"):
+def extract_candidate_junctions(net_file_path: str = "map.net.xml", output_path: str = "candidates.json"):
     """
-    Scans the map for valid intersections and extracts STREET NAMES 
-    to allow matching with the Traffic Count Excel file.
+    Scans the map for valid intersections and extracts STREET NAMES.
+    Saves to JSON file. Returns Status Message Only.
     """
-    logger.info(f"🔎 Scanning {net_file_path} for intersections with names...")
+    
+    
+    logger.info(f"🔎 Scanning {net_file_path}...")
+    
+    if not os.path.exists(net_file_path):
+        return f"Error: Net file {net_file_path} not found."
+
     try:
         tree = ET.parse(net_file_path)
         root = tree.getroot()
         
-        # 1. Build a lookup of Edge ID -> Street Name
-        # SUMO stores names in the 'name' attribute OR in a <param key="name"/> child
         edge_names = {}
         for edge in root.findall('edge'):
             e_id = edge.get('id')
-            
-            # Check attribute 'name' (common in recent SUMO versions)
             name = edge.get('name')
-            
-            # If not in attribute, check <param> children
             if not name:
                 for param in edge.findall('param'):
                     if param.get('key') == 'name':
                         name = param.get('value')
                         break
-            
-            # Fallback: if no name, use ID
             edge_names[e_id] = name if name else e_id
 
-        # 2. Find Candidates
         candidates = []
         for junction in root.findall('junction'):
             j_id = junction.get('id')
             j_type = junction.get('type')
             
-            # Filter criteria (Page 3)
-            if j_type in ["internal", "dead_end"]:
-                continue
+            if j_type in ["internal", "dead_end"]: continue
             
             inc_lanes = junction.get('incLanes', '').split()
             incoming_edges_set = set()
             incoming_details = []
 
             for lane in inc_lanes:
-                if lane.startswith(":"): continue # Skip internal lanes
-                
-                # Get Edge ID from Lane ID (remove last _0)
-                edge_id = "_".join(lane.split("_")[:-1])
+                if lane.startswith(":"): continue 
+                if "_" in lane:
+                    edge_id = "_".join(lane.split("_")[:-1])
+                else:
+                    edge_id = lane
                 
                 if edge_id not in incoming_edges_set:
                     incoming_edges_set.add(edge_id)
-                    # Add the name to the list
                     incoming_details.append({
                         "edge_id": edge_id,
                         "name": edge_names.get(edge_id, "Unknown")
                     })
 
-            # Filter: Real intersections usually have 3+ legs, or are signals
-            if len(incoming_edges_set) >= 3 or j_type == "traffic_light":
+            # --- UPDATED FILTER LOGIC ---
+            # Strictly require at least 3 incoming legs to be considered a valid intersection.
+            # This filters out the broken 2-leg traffic lights caused by failed clustering.
+            if len(incoming_edges_set) >= 3:
                 candidates.append({
                     "junction_id": j_id,
                     "type": j_type,
                     "num_legs": len(incoming_edges_set),
-                    "approaches": incoming_details # Now contains Names!
+                    "approaches": incoming_details
                 })
 
-        # Sort by complexity
         candidates.sort(key=lambda x: x['num_legs'], reverse=True)
-        with open('candidates.json', 'w') as f:
+        
+        with open(output_path, 'w') as f:
             json.dump(candidates, f, indent=2)
-        return json.dumps(candidates, indent=2)
+            
+        return f"Success: Extracted {len(candidates)} candidates. Saved to {output_path}."
 
     except Exception as e:
         logger.error(f"Error: {e}")
@@ -810,8 +808,8 @@ You are an expert Traffic Simulation Engineer Agent using SUMO in an AWS Lambda 
 **Phase 1: Network & Discovery**
 1. Call `download_osm_map` -> Save to `map.osm`.
 2. Call `execute_shell_commands` for netconvert:
-   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
-3. Call `extract_candidate_junctions`.
+   # UPDATED COMMAND BELOW: Added --junctions.join-dist 15 to force clustering
+   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --junctions.join-dist 15 --tls.guess true --output.street-names true`
    *   Input: `net_file_path="map.net.xml"`, `output_path="candidates.json"`
    *   The tool will save the file. DO NOT ask to see the content. Proceed to Phase 2.
 

@@ -446,8 +446,7 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_
     Scans the map for valid intersections and extracts STREET NAMES.
     Saves to JSON file. Returns Status Message Only.
     """
-    net_file_path = _enforce_tmp_path(net_file_path)
-    output_path = _enforce_tmp_path(output_path)
+    
     
     logger.info(f"🔎 Scanning {net_file_path}...")
     
@@ -494,7 +493,10 @@ def extract_candidate_junctions(net_file_path: str = "/tmp/map.net.xml", output_
                         "name": edge_names.get(edge_id, "Unknown")
                     })
 
-            if len(incoming_edges_set) >= 3 or j_type == "traffic_light":
+            # --- UPDATED FILTER LOGIC ---
+            # Strictly require at least 3 incoming legs to be considered a valid intersection.
+            # This filters out the broken 2-leg traffic lights caused by failed clustering.
+            if len(incoming_edges_set) >= 3:
                 candidates.append({
                     "junction_id": j_id,
                     "type": j_type,

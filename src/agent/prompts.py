@@ -10,8 +10,8 @@ CRITICAL INSTRUCTIONS:
 
 **Phase 1: Network & Discovery**
 1. Call `download_osm_map` -> Save to `/tmp/map.osm`.
-2. Call `execute_shell_commands` for netconvert:
-   Command: `netconvert --osm-files /tmp/map.osm -o /tmp/map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
+ # UPDATED COMMAND BELOW: Added --junctions.join-dist 15 to force clustering
+   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --junctions.join-dist 15 --tls.guess true --output.street-names true`
 3. Call `extract_candidate_junctions`.
    *   Input: `net_file_path="/tmp/map.net.xml"`, `output_path="/tmp/candidates.json"`
    *   The tool will save the file. DO NOT ask to see the content. Proceed to Phase 2.

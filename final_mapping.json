@@ -1,0 +1,17 @@
+{
+  "junction_id": "1550214890",
+  "mapping": {
+    "SB": {
+      "in_edge": "-88291250#2",
+      "name": "Foxtail Meadow Lane"
+    },
+    "WB": {
+      "in_edge": "-141624560#0",
+      "name": "Meridian Market View"
+    },
+    "NB": {
+      "in_edge": "88291250#1",
+      "name": "Foxtail Meadow Lane"
+    }
+  }
+}

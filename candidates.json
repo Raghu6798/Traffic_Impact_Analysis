@@ -74,6 +74,60 @@
     ]
   },
   {
+    "junction_id": "cluster_1024123265_1024123371_12594314865_12594314866",
+    "type": "traffic_light",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "599496410#3",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "-1014074585",
+        "name": "Old Meridian Road"
+      },
+      {
+        "edge_id": "1360480060#1",
+        "name": "1360480060#1"
+      },
+      {
+        "edge_id": "773677691#0",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "88289922#9",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1025538290_12594314870_12594314871",
+    "type": "priority",
+    "num_legs": 5,
+    "approaches": [
+      {
+        "edge_id": "88290007#10",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "-88289922#2",
+        "name": "Rolling Thunder Way"
+      },
+      {
+        "edge_id": "1360480060#8",
+        "name": "1360480060#8"
+      },
+      {
+        "edge_id": "-88290007#12",
+        "name": "Antelope Meadows Circle"
+      },
+      {
+        "edge_id": "88289922#0",
+        "name": "Rolling Thunder Way"
+      }
+    ]
+  },
+  {
     "junction_id": "cluster_1025540905_12594314869",
     "type": "priority",
     "num_legs": 5,
@@ -201,29 +255,6 @@
       {
         "edge_id": "88141337#1",
         "name": "Gorman Grove"
-      }
-    ]
-  },
-  {
-    "junction_id": "1025538290",
-    "type": "priority",
-    "num_legs": 4,
-    "approaches": [
-      {
-        "edge_id": "88290007#10",
-        "name": "Antelope Meadows Circle"
-      },
-      {
-        "edge_id": "-88289922#2",
-        "name": "Rolling Thunder Way"
-      },
-      {
-        "edge_id": "-88290007#11",
-        "name": "Antelope Meadows Circle"
-      },
-      {
-        "edge_id": "88289922#1",
-        "name": "Rolling Thunder Way"
       }
     ]
   },
@@ -941,52 +972,6 @@
     ]
   },
   {
-    "junction_id": "cluster_1025570258_8675785753",
-    "type": "priority",
-    "num_legs": 4,
-    "approaches": [
-      {
-        "edge_id": "-88293889",
-        "name": "-88293889"
-      },
-      {
-        "edge_id": "-88292194#9",
-        "name": "Owings Point"
-      },
-      {
-        "edge_id": "-936284661#0",
-        "name": "-936284661#0"
-      },
-      {
-        "edge_id": "88292194#7",
-        "name": "Owings Point"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_10884068631_10884068633",
-    "type": "priority",
-    "num_legs": 4,
-    "approaches": [
-      {
-        "edge_id": "-218670467#3",
-        "name": "Corbu Heights"
-      },
-      {
-        "edge_id": "-1171272417",
-        "name": "-1171272417"
-      },
-      {
-        "edge_id": "218670467#1",
-        "name": "Corbu Heights"
-      },
-      {
-        "edge_id": "-1171272418",
-        "name": "-1171272418"
-      }
-    ]
-  },
-  {
     "junction_id": "cluster_11804422330_11804422339",
     "type": "right_before_left",
     "num_legs": 4,
@@ -1098,6 +1083,29 @@
       {
         "edge_id": "218899447",
         "name": "Mclaughlin Road"
+      }
+    ]
+  },
+  {
+    "junction_id": "cluster_1550214881_1550214898_2281042760",
+    "type": "priority",
+    "num_legs": 4,
+    "approaches": [
+      {
+        "edge_id": "218899453",
+        "name": "Meridian Market View"
+      },
+      {
+        "edge_id": "218899454",
+        "name": "Meridian Road"
+      },
+      {
+        "edge_id": "189512167#1",
+        "name": "Flower Road"
+      },
+      {
+        "edge_id": "95474932#2",
+        "name": "Meridian Road"
       }
     ]
   },
@@ -1362,44 +1370,6 @@
       {
         "edge_id": "-88141354#5",
         "name": "Bierstadt Heights"
-      }
-    ]
-  },
-  {
-    "junction_id": "1024123265",
-    "type": "traffic_light",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "-1014074585",
-        "name": "Old Meridian Road"
-      },
-      {
-        "edge_id": "773677691#2",
-        "name": "Meridian Road"
-      },
-      {
-        "edge_id": "189663799",
-        "name": "Rolling Thunder Way"
-      }
-    ]
-  },
-  {
-    "junction_id": "1024123371",
-    "type": "traffic_light",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "599496410#3",
-        "name": "Meridian Road"
-      },
-      {
-        "edge_id": "-189663799",
-        "name": "Rolling Thunder Way"
-      },
-      {
-        "edge_id": "88289922#9",
-        "name": "Rolling Thunder Way"
       }
     ]
   },
@@ -1955,6 +1925,25 @@
     ]
   },
   {
+    "junction_id": "1025570258",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88293889",
+        "name": "-88293889"
+      },
+      {
+        "edge_id": "-88292194#9",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "88292194#8",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
     "junction_id": "10848375481",
     "type": "priority",
     "num_legs": 3,
@@ -2027,6 +2016,44 @@
       {
         "edge_id": "1171272415",
         "name": "Maybeck Point"
+      }
+    ]
+  },
+  {
+    "junction_id": "10884068631",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218670467#2",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "-1171272417",
+        "name": "-1171272417"
+      },
+      {
+        "edge_id": "218670467#1",
+        "name": "Corbu Heights"
+      }
+    ]
+  },
+  {
+    "junction_id": "10884068633",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-218670467#3",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "218670467#2",
+        "name": "Corbu Heights"
+      },
+      {
+        "edge_id": "-1171272418",
+        "name": "-1171272418"
       }
     ]
   },
@@ -2677,44 +2704,6 @@
     ]
   },
   {
-    "junction_id": "12594314870",
-    "type": "priority",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "88290007#11",
-        "name": "Antelope Meadows Circle"
-      },
-      {
-        "edge_id": "1360480060#8",
-        "name": "1360480060#8"
-      },
-      {
-        "edge_id": "-88290007#12",
-        "name": "Antelope Meadows Circle"
-      }
-    ]
-  },
-  {
-    "junction_id": "12594314871",
-    "type": "priority",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "-88289922#1",
-        "name": "Rolling Thunder Way"
-      },
-      {
-        "edge_id": "1360480060#9",
-        "name": "1360480060#9"
-      },
-      {
-        "edge_id": "88289922#0",
-        "name": "Rolling Thunder Way"
-      }
-    ]
-  },
-  {
     "junction_id": "12594314934",
     "type": "priority",
     "num_legs": 3,
@@ -2939,25 +2928,6 @@
       {
         "edge_id": "1434595984",
         "name": "1434595984"
-      }
-    ]
-  },
-  {
-    "junction_id": "1550214881",
-    "type": "priority",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "189512167#1",
-        "name": "Flower Road"
-      },
-      {
-        "edge_id": "95474932#2",
-        "name": "Meridian Road"
-      },
-      {
-        "edge_id": "-189512167#2",
-        "name": "Flower Road"
       }
     ]
   },
@@ -4159,25 +4129,6 @@
     ]
   },
   {
-    "junction_id": "55776303",
-    "type": "traffic_light",
-    "num_legs": 3,
-    "approaches": [
-      {
-        "edge_id": "-218899457",
-        "name": "-218899457"
-      },
-      {
-        "edge_id": "218899458#1",
-        "name": "218899458#1"
-      },
-      {
-        "edge_id": "218652297#1",
-        "name": "East Woodmen Road"
-      }
-    ]
-  },
-  {
     "junction_id": "55792229",
     "type": "right_before_left",
     "num_legs": 3,
@@ -5337,6 +5288,25 @@
     ]
   },
   {
+    "junction_id": "8675785753",
+    "type": "priority",
+    "num_legs": 3,
+    "approaches": [
+      {
+        "edge_id": "-88292194#8",
+        "name": "Owings Point"
+      },
+      {
+        "edge_id": "-936284661#0",
+        "name": "-936284661#0"
+      },
+      {
+        "edge_id": "88292194#7",
+        "name": "Owings Point"
+      }
+    ]
+  },
+  {
     "junction_id": "8675785754",
     "type": "right_before_left",
     "num_legs": 3,
@@ -5413,21 +5383,21 @@
     ]
   },
   {
-    "junction_id": "cluster_1550214898_2281042760",
-    "type": "priority",
+    "junction_id": "cluster_1024108387_55776303",
+    "type": "traffic_light",
     "num_legs": 3,
     "approaches": [
       {
-        "edge_id": "218899453",
-        "name": "Meridian Market View"
+        "edge_id": "-218899456#0",
+        "name": "-218899456#0"
       },
       {
-        "edge_id": "218899454",
-        "name": "Meridian Road"
+        "edge_id": "218899458#1",
+        "name": "218899458#1"
       },
       {
-        "edge_id": "189512167#2",
-        "name": "Flower Road"
+        "edge_id": "218652297#1",
+        "name": "East Woodmen Road"
       }
     ]
   },
@@ -5504,1111 +5474,6 @@
       {
         "edge_id": "896870294",
         "name": "896870294"
-      }
-    ]
-  },
-  {
-    "junction_id": "1024108387",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-218899456#0",
-        "name": "-218899456#0"
-      },
-      {
-        "edge_id": "218899457",
-        "name": "218899457"
-      }
-    ]
-  },
-  {
-    "junction_id": "12253760703",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1359894763#0",
-        "name": "East Fountain Boulevard"
-      },
-      {
-        "edge_id": "-1359894763#1",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "12253760706",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1387930319#0",
-        "name": "East Fountain Boulevard"
-      },
-      {
-        "edge_id": "-1387930319#1",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "176403833",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "527605658",
-        "name": "527605658"
-      },
-      {
-        "edge_id": "-1416164908#1",
-        "name": "-1416164908#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "176421348",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1416164908#1",
-        "name": "1416164908#1"
-      },
-      {
-        "edge_id": "-1416164908#2",
-        "name": "-1416164908#2"
-      }
-    ]
-  },
-  {
-    "junction_id": "177318465",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-119057168",
-        "name": "North Poplar Street"
-      },
-      {
-        "edge_id": "119057103",
-        "name": "North Poplar Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "177342056",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-27637918#2",
-        "name": "Harrison Avenue"
-      },
-      {
-        "edge_id": "27637918#1",
-        "name": "Harrison Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "177344602",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-27637918#1",
-        "name": "Harrison Avenue"
-      },
-      {
-        "edge_id": "844433572",
-        "name": "Harrison Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "177448752",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "813328255",
-        "name": "813328255"
-      },
-      {
-        "edge_id": "813326941",
-        "name": "813326941"
-      }
-    ]
-  },
-  {
-    "junction_id": "178161232",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1262590331",
-        "name": "1262590331"
-      },
-      {
-        "edge_id": "-778369425#1",
-        "name": "-778369425#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "55797656",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-218816683#1",
-        "name": "-218816683#1"
-      },
-      {
-        "edge_id": "218816683#0",
-        "name": "218816683#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "55797698",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "-301006588#1",
-        "name": "-301006588#1"
-      },
-      {
-        "edge_id": "301006588#0",
-        "name": "301006588#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "5971821588",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "778369425#1",
-        "name": "778369425#1"
-      },
-      {
-        "edge_id": "-778369425#2",
-        "name": "-778369425#2"
-      }
-    ]
-  },
-  {
-    "junction_id": "639424885",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1409966281",
-        "name": "West Cimarron Street"
-      },
-      {
-        "edge_id": "-1413014887",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "962806348",
-    "type": "traffic_light",
-    "num_legs": 2,
-    "approaches": [
-      {
-        "edge_id": "1387930319#1",
-        "name": "East Fountain Boulevard"
-      },
-      {
-        "edge_id": "-1359894763#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "1014926790",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "652353420",
-        "name": "652353420"
-      }
-    ]
-  },
-  {
-    "junction_id": "1107010978",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006763",
-        "name": "301006763"
-      }
-    ]
-  },
-  {
-    "junction_id": "1107010983",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006765#1",
-        "name": "301006765#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "1107013253",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "892887694",
-        "name": "892887694"
-      }
-    ]
-  },
-  {
-    "junction_id": "1107013254",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006765#0",
-        "name": "301006765#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "11384294933",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1300165238",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "11384294934",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "99032567#1",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "11623839520",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239052#0",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "1162821306",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "100574869#3",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "1162821489",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "238694432#2",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "1162823958",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "238694432#0",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "1162824217",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "100574869#5",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "1164583616",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1388009662",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "12026862042",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "99032567#2",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "12026862044",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "877757463#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "12026862045",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "877757471#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "12899771732",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "119057177#2",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "12899771736",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "117319352#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "13069734720",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "36910012#0",
-        "name": "East Platte Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "1692460871",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1060322785#0",
-        "name": "1060322785#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "178161222",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "179901513",
-        "name": "179901513"
-      }
-    ]
-  },
-  {
-    "junction_id": "178161345",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239069#0",
-        "name": "222239069#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "178161348",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239072",
-        "name": "222239072"
-      }
-    ]
-  },
-  {
-    "junction_id": "1980659713",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1392529862",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "2010206802",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "82695927#1",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "2085206017",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "121940603#0",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "2085206793",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "121045624#0",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "2101143983",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1076362463",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "3507460673",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343965017#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "3507473606",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343964956#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "429002011",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006767#2",
-        "name": "301006767#2"
-      }
-    ]
-  },
-  {
-    "junction_id": "429004246",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006767#0",
-        "name": "301006767#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "431490055",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "229626973",
-        "name": "Midland Expressway"
-      }
-    ]
-  },
-  {
-    "junction_id": "452148751",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "95471457#0",
-        "name": "95471457#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "4933457902",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1111241340#1",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "4985640982",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1111241340#0",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "4985640987",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "502989756#0",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "55782183",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239071",
-        "name": "222239071"
-      }
-    ]
-  },
-  {
-    "junction_id": "55787254",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239052#1",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "55797581",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1392529863#1",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "55797628",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239064",
-        "name": "222239064"
-      }
-    ]
-  },
-  {
-    "junction_id": "5928375962",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1411132868",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "6408309229",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "238694432#1",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "6422383763",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "100574869#4",
-        "name": "Meridian Road"
-      }
-    ]
-  },
-  {
-    "junction_id": "6463275080",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "301006767#1",
-        "name": "301006767#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "675444965",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239070",
-        "name": "Midland Expressway"
-      }
-    ]
-  },
-  {
-    "junction_id": "7003669550",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "748911032",
-        "name": "748911032"
-      }
-    ]
-  },
-  {
-    "junction_id": "7606796536",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "229624408#0",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "7606796537",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1396137422#0",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "817652486",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239066#1",
-        "name": "222239066#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "817652585",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "222239066#0",
-        "name": "222239066#0"
-      }
-    ]
-  },
-  {
-    "junction_id": "817652622",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "990290687#1",
-        "name": "990290687#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "817652653",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "106298085",
-        "name": "106298085"
-      }
-    ]
-  },
-  {
-    "junction_id": "962704866",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1300165230",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962791803",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "82695927#0",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962795599",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "99032567#3",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962796107",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "99032567#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962796123",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1300165232#1",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962802843",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "888358407",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962803674",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "82698442#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962803686",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1064293963",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "962804428",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1064293959",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_1113930522_12026862043",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "877757471#1",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_11623839519_2312199576",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "655930227",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_12899771730_12899771735",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "119057177#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_12899771731_12899771733",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343965029#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_177311578_3507460661_3507460691",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343964890#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_177311580_3507460692",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343964885#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_177316149_3507473092_3507473602",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343964972#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_177468752_3042510846_3042510853",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "300145513#0",
-        "name": "Main Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_177468859_3042510848_3042510856",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "300399183#0",
-        "name": "Main Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2010207372_962796759",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1300165233#0",
-        "name": "East Fountain Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2085205861_962697793",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "121045624#1",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2085206489_962696368",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1300188115#0",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2101143868_962699932",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1076362462#1",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2101143895_962693076",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1076362460",
-        "name": "South Powers Boulevard"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_2381930286_2381930296_4253647700",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "1396137422#1",
-        "name": "West Cimarron Street"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_3507473604_8945584576",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "343964898#0",
-        "name": "Rose Avenue"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_439958080_6463275081",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "95471457#1",
-        "name": "95471457#1"
-      }
-    ]
-  },
-  {
-    "junction_id": "cluster_8988608756_8988608757",
-    "type": "traffic_light",
-    "num_legs": 1,
-    "approaches": [
-      {
-        "edge_id": "82698442#1",
-        "name": "East Fountain Boulevard"
       }
     ]
   }

@@ -1,0 +1,16 @@
+<turns>
+    <interval begin="0" end="3600">
+        <fromEdge id="88291250#1">
+            <toEdge id="141624560#0" probability="0.84"/>
+            <toEdge id="88291250#2" probability="0.16"/>
+        </fromEdge>
+        <fromEdge id="-88291250#2">
+            <toEdge id="-88291250#1" probability="0.40"/>
+            <toEdge id="141624560#0" probability="0.60"/>
+        </fromEdge>
+        <fromEdge id="-141624560#0">
+            <toEdge id="88291250#2" probability="0.32"/>
+            <toEdge id="-88291250#1" probability="0.68"/>
+        </fromEdge>
+    </interval>
+</turns>
