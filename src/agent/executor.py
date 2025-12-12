@@ -9,7 +9,9 @@ from src.agent.tools import (
     analyze_simulation_results,
     parse_tripinfo,
     generate_detectors,
-    export_simulation_files
+    export_simulation_files,
+    compute_hcm_metrics,
+    parse_queue_xml
 )
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import InMemorySaver  
@@ -35,7 +37,9 @@ agent = create_agent(
         analyze_simulation_results,
         parse_tripinfo,
         generate_detectors,
-        export_simulation_files],
+        export_simulation_files,
+        compute_hcm_metrics,
+        parse_queue_xml],
     system_prompt=SYSTEM_PROMPT,
     checkpointer=InMemorySaver()
 ) 
