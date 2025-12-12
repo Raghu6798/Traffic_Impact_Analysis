@@ -1,7 +1,6 @@
 <routes>
     <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>
-    <vType id="pedestrian" vClass="pedestrian" length="0.5" width="0.5" speed="1.2"/>
-    <flow id="flow_1550214890_NB" begin="0" end="3600" number="50" from="88291250#1" type="car"/>
-    <flow id="flow_1550214890_SB" begin="0" end="3600" number="81" from="-88291250#2" type="car"/>
-    <flow id="flow_1550214890_WB" begin="0" end="3600" number="79" from="-141624560#0" type="car"/>
+    <flow id="flow_1025551194_SB" begin="0" end="3600" number="82" from="-88291250#0" type="car"/>
+    <flow id="flow_1025551194_EB" begin="0" end="3600" number="123" from="88289922#6" type="car"/>
+    <flow id="flow_1025551194_WB" begin="0" end="3600" number="166" from="-88289922#7" type="car"/>
 </routes>

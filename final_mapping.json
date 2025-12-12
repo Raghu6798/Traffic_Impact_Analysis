@@ -1,16 +1,16 @@
 {
-  "junction_id": "1550214890",
+  "junction_id": "1025551194",
   "mapping": {
-    "SB": {
-      "in_edge": "-88291250#2",
-      "name": "Foxtail Meadow Lane"
-    },
     "WB": {
-      "in_edge": "-141624560#0",
-      "name": "Meridian Market View"
+      "in_edge": "-88289922#7",
+      "name": "Rolling Thunder Way"
     },
-    "NB": {
-      "in_edge": "88291250#1",
+    "EB": {
+      "in_edge": "88289922#6",
+      "name": "Rolling Thunder Way"
+    },
+    "SB": {
+      "in_edge": "-88291250#0",
       "name": "Foxtail Meadow Lane"
     }
   }

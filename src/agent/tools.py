@@ -230,7 +230,6 @@ def rename_file(old_name: str, new_name: str):
             return f"Error: Source file {old_name} does not exist."
     except Exception as e:
         return f"Error renaming file: {e}"
-
 @tool
 def generate_traffic_demand(
     corridor_mapping_file: str, 
@@ -239,18 +238,30 @@ def generate_traffic_demand(
     flow_file: str = "/tmp/flows.xml", 
     turn_file: str = "/tmp/turns.xml"
 ):
-    """Generates SUMO traffic demand files."""
+    """
+    Generates SUMO traffic demand files ('flows.xml' and 'turns.xml') for VEHICLES only.
+    Args
+    corridor_mapping_file: Path to the corridor mapping file (e.g., '/tmp/final_mapping.json')
+    net_file_path: Path to the SUMO network file (e.g., '/tmp/map.net.xml')
+    csv_data_path: Path to the CSV data file (e.g., '/tmp/data.csv')
+    flow_file: Path to the output flows file (e.g., '/tmp/flows.xml')
+    turn_file: Path to the output turns file (e.g., '/tmp/turns.xml')    
+    Returns
+    A message indicating success or failure.
+    """
+    # Enforce paths
     corridor_mapping_file = _enforce_tmp_path(corridor_mapping_file)
     net_file_path = _enforce_tmp_path(net_file_path)
     flow_file = _enforce_tmp_path(flow_file)
     turn_file = _enforce_tmp_path(turn_file)
     
-    logger.info("🚗 Generating Traffic Demand...")
+    logger.info("🚗 Generating Traffic Demand (Vehicles only)...")
     
     try:
         with open(corridor_mapping_file, 'r') as f:
             raw_data = json.load(f)
         
+        # Normalize Input
         if "junction_id" in raw_data:
             mapping_data = {"Single_Intersection_Run": raw_data}
         else:
@@ -262,9 +273,9 @@ def generate_traffic_demand(
     except Exception as e:
         return f"Critical Error loading inputs: {e}"
 
+    # Define vTypes for Car only (removed pedestrian vType)
     flows_xml = """<routes>
-    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>
-    <vType id="pedestrian" vClass="pedestrian" length="0.5" width="0.5" speed="1.2"/>\n"""
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>\n"""
     
     turns_xml = '<turns>\n    <interval begin="0" end="3600">\n'
     
@@ -288,40 +299,64 @@ def generate_traffic_demand(
 
         try:
             df = pd.read_csv(csv_path)
+            
+            # 1. Identify Columns (Vehicles Only)
             veh_cols = [c for c in df.columns if any(x in c for x in ['Left', 'Thru', 'Right', 'U']) and 'Peds' not in c]
-            ped_cols = [c for c in df.columns if 'Peds' in c or 'Ped' in c]
 
             if not veh_cols:
                 errors.append(f"ID {int_id}: No vehicle columns found.")
                 continue
 
+            # 2. Find Peak Hour (Rolling Sum)
             df['Interval_Veh_Total'] = df[veh_cols].sum(axis=1)
             df['Hourly_Rolling'] = df['Interval_Veh_Total'].rolling(window=4).sum().shift(-3)
+            
             peak_idx = df['Hourly_Rolling'].idxmax()
             
             if pd.isna(peak_idx):
                 errors.append(f"ID {int_id}: Insufficient data.")
                 continue
             
+            # 3. Calculate PHF
+            peak_hour_vol = df.loc[peak_idx, 'Hourly_Rolling']
             peak_window = df.iloc[int(peak_idx) : int(peak_idx) + 4]
-            peak_veh_sums = peak_window[veh_cols].sum()
-            peak_ped_sums = peak_window[ped_cols].sum() if ped_cols else pd.Series()
+            max_15min = peak_window['Interval_Veh_Total'].max()
+            
+            phf = peak_hour_vol / (4 * max_15min) if max_15min > 0 else 0
+            
+            logger.info(f"📊 Intersection {junction_id} Stats:")
+            logger.info(f"   Peak Hour Starts Index: {peak_idx}")
+            logger.info(f"   Total Peak Hourly Volume: {int(peak_hour_vol)}")
+            logger.info(f"   Peak Hour Factor (PHF): {phf:.2f}") 
 
+            # Sum volumes for the peak hour
+            peak_veh_sums = peak_window[veh_cols].sum()
+
+            # 4. Generate Flows per Direction
             for direction in ['NB', 'SB', 'EB', 'WB']:
                 if direction not in edge_map: continue
+                
                 in_edge_id = edge_map[direction]['in_edge']
                 
+                # --- VEHICLES ---
                 v_L = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Left' in c])
                 v_T = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Thru' in c])
                 v_R = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Right' in c])
                 v_U = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'U' in c])
+                
                 total_veh = v_L + v_T + v_R + v_U
                 
                 if total_veh > 0:
+                    # Write Vehicle Flow
                     flow_id = f"flow_{junction_id}_{direction}"
                     flows_xml += f'    <flow id="{flow_id}" begin="0" end="3600" number="{int(total_veh)}" from="{in_edge_id}" type="car"/>\n'
 
-                    probs = {'l': v_L/total_veh, 's': v_T/total_veh, 'r': v_R/total_veh, 't': v_U/total_veh}
+                    # Write Turning Ratios
+                    probs = {
+                        'l': v_L / total_veh, 's': v_T / total_veh, 
+                        'r': v_R / total_veh, 't': v_U / total_veh
+                    }
+                    
                     connections = net_root.findall(f"./connection[@from='{in_edge_id}']")
                     turns_xml += f'        <fromEdge id="{in_edge_id}">\n'
                     written_dirs = set()
@@ -334,13 +369,6 @@ def generate_traffic_demand(
                             written_dirs.add(sumo_dir)
                     turns_xml += '        </fromEdge>\n'
 
-                p_vol = sum([peak_ped_sums[c] for c in peak_ped_sums.index if direction in c])
-                if p_vol > 0:
-                    ped_id = f"ped_{junction_id}_{direction}"
-                    flows_xml += f'    <personFlow id="{ped_id}" begin="0" end="3600" number="{int(p_vol)}">\n'
-                    flows_xml += f'        <walk from="{in_edge_id}" to="{in_edge_id}" arrivalPos="max"/>\n'
-                    flows_xml += f'    </personFlow>\n'
-
             processed_count += 1
 
         except Exception as e:
@@ -352,7 +380,7 @@ def generate_traffic_demand(
     try:
         with open(flow_file, "w") as f: f.write(flows_xml)
         with open(turn_file, "w") as f: f.write(turns_xml)
-        msg = f"✅ Success: Demand generated. Saved to {flow_file} and {turn_file}."
+        msg = f"✅ Success: Demand generated for {processed_count} intersections."
         if errors: msg += f"\n⚠️ Warnings: {'; '.join(errors)}"
         logger.success(msg)
         return msg

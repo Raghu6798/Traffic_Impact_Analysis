@@ -330,14 +330,22 @@ def generate_traffic_demand(
     corridor_mapping_file: str, 
     net_file_path: str,
     csv_data_path: str = None, 
-    flow_file: str = "flows.xml", 
-    turn_file: str = "turns.xml"
+    flow_file: str = "/tmp/flows.xml", 
+    turn_file: str = "/tmp/turns.xml"
 ):
     """
-    Generates SUMO traffic demand files ('flows.xml' and 'turns.xml').
-    Now includes PEDESTRIAN demand and calculates PHF metrics.
+    Generates SUMO traffic demand files ('flows.xml' and 'turns.xml') for VEHICLES only.
+    Args
+    corridor_mapping_file: Path to the corridor mapping file (e.g., 'final_mapping.json')
+    net_file_path: Path to the SUMO network file (e.g., 'map.net.xml')
+    csv_data_path: Path to the CSV data file (e.g., 'data.csv')
+    flow_file: Path to the output flows file (e.g., 'flows.xml')
+    turn_file: Path to the output turns file (e.g., 'turns.xml')    
+    Returns
+    A message indicating success or failure.
     """
-    logger.info("🚗 Generating Traffic Demand (Vehicles & Pedestrians)...")
+    
+    logger.info("🚗 Generating Traffic Demand (Vehicles only)...")
     
     try:
         with open(corridor_mapping_file, 'r') as f:
@@ -355,10 +363,9 @@ def generate_traffic_demand(
     except Exception as e:
         return f"Critical Error loading inputs: {e}"
 
-    # Define vTypes for Car and Pedestrian
+    # Define vTypes for Car only (removed pedestrian vType)
     flows_xml = """<routes>
-    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>
-    <vType id="pedestrian" vClass="pedestrian" length="0.5" width="0.5" speed="1.2"/>\n"""
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="5" minGap="2.5" maxSpeed="55.55"/>\n"""
     
     turns_xml = '<turns>\n    <interval begin="0" end="3600">\n'
     
@@ -370,6 +377,12 @@ def generate_traffic_demand(
         edge_map = data.get('mapping', {})
         csv_path = data.get('data_file_path', csv_data_path)
 
+        # Sanity check for CSV path
+        if csv_path and not os.path.exists(csv_path):
+             tmp_csv = os.path.join("/tmp", os.path.basename(csv_path))
+             if os.path.exists(tmp_csv):
+                 csv_path = tmp_csv
+
         if not csv_path or not os.path.exists(csv_path):
             errors.append(f"ID {int_id}: CSV file not found.")
             continue
@@ -377,17 +390,14 @@ def generate_traffic_demand(
         try:
             df = pd.read_csv(csv_path)
             
-            # 1. Identify Columns
-            # Vehicle columns
+            # 1. Identify Columns (Vehicles Only)
             veh_cols = [c for c in df.columns if any(x in c for x in ['Left', 'Thru', 'Right', 'U']) and 'Peds' not in c]
-            # Pedestrian columns (Look for 'Peds' or 'Ped')
-            ped_cols = [c for c in df.columns if 'Peds' in c or 'Ped' in c]
 
             if not veh_cols:
                 errors.append(f"ID {int_id}: No vehicle columns found.")
                 continue
 
-            # 2. Find Peak Hour (Rolling Sum) - PDF Page 3
+            # 2. Find Peak Hour (Rolling Sum)
             df['Interval_Veh_Total'] = df[veh_cols].sum(axis=1)
             df['Hourly_Rolling'] = df['Interval_Veh_Total'].rolling(window=4).sum().shift(-3)
             
@@ -397,8 +407,7 @@ def generate_traffic_demand(
                 errors.append(f"ID {int_id}: Insufficient data.")
                 continue
             
-            # 3. Calculate PHF (Peak Hour Factor) - PDF Page 4
-            # PHF = Hourly Volume / (4 * Max 15-min Volume)
+            # 3. Calculate PHF
             peak_hour_vol = df.loc[peak_idx, 'Hourly_Rolling']
             peak_window = df.iloc[int(peak_idx) : int(peak_idx) + 4]
             max_15min = peak_window['Interval_Veh_Total'].max()
@@ -412,7 +421,6 @@ def generate_traffic_demand(
 
             # Sum volumes for the peak hour
             peak_veh_sums = peak_window[veh_cols].sum()
-            peak_ped_sums = peak_window[ped_cols].sum() if ped_cols else pd.Series()
 
             # 4. Generate Flows per Direction
             for direction in ['NB', 'SB', 'EB', 'WB']:
@@ -420,7 +428,7 @@ def generate_traffic_demand(
                 
                 in_edge_id = edge_map[direction]['in_edge']
                 
-                # --- A. VEHICLES ---
+                # --- VEHICLES ---
                 v_L = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Left' in c])
                 v_T = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Thru' in c])
                 v_R = sum([peak_veh_sums[c] for c in peak_veh_sums.index if direction in c and 'Right' in c])
@@ -450,20 +458,6 @@ def generate_traffic_demand(
                             turns_xml += f'            <toEdge id="{to_edge}" probability="{probs[sumo_dir]:.2f}"/>\n'
                             written_dirs.add(sumo_dir)
                     turns_xml += '        </fromEdge>\n'
-
-                # --- B. PEDESTRIANS (PDF Page 4) ---
-                # Find columns like "NB_Peds" or "NB Peds"
-                p_vol = sum([peak_ped_sums[c] for c in peak_ped_sums.index if direction in c])
-                
-                if p_vol > 0:
-                    # SUMO uses <personFlow> for pedestrians.
-                    # We inject them on the walking edge associated with the road.
-                    # Simple approach: start them at the edge, let them walk to the junction.
-                    ped_id = f"ped_{junction_id}_{direction}"
-                    # Note: 'departPos' random distributes them. 'arrivalPos' makes them cross.
-                    flows_xml += f'    <personFlow id="{ped_id}" begin="0" end="3600" number="{int(p_vol)}">\n'
-                    flows_xml += f'        <walk from="{in_edge_id}" to="{in_edge_id}" arrivalPos="max"/>\n' # Walk to end of edge (intersection)
-                    flows_xml += f'    </personFlow>\n'
 
             processed_count += 1
 
@@ -804,12 +798,38 @@ You are an expert Traffic Simulation Engineer Agent using SUMO in an AWS Lambda 
 
 
 **EXECUTION PIPELINE:**
+1.  **Map Selection:** The user has likely already selected an area. If `current_bbox` is in the context, use it to `download_osm_map`.
+2.  **Traffic Data:** If the user provided a file (`uploaded_file_path`), use it.
+3.  **Topology Mapping:** Use `extract_candidate_junctions`, then `map_volume_to_topology` using street names from the user's prompt or the CSV file.
+4.  **Demand Generation:** Call `generate_traffic_demand`.
+5.  **Simulation Config:** Run `generate_detectors` and `create_sumo_config`.
+6.  **Simulation Run:** Execute using `execute_shell_commands("sumo -c config.sumocfg")`.
+7.  **Analysis:** Call `compute_hcm_metrics`.
+
+**CRITICAL OUTPUT INSTRUCTION:**
+When you successfully run a simulation and have the results from `compute_hcm_metrics`, you MUST include a raw JSON block at the very end of your response. 
+Do not include any text inside the JSON block other than the valid JSON.
+
+Format:
+```json
+{
+  "metrics": {
+    "Average_Delay_sec": 35.2,
+    "Level_of_Service": "D",
+    "Total_Vehicles_Processed": 1250,
+    "Volume_to_Capacity_Ratio": 0.85
+  },
+  "details": {
+     "Queue_status": "..."
+     // Include 95th Percentile Queue data here if available, e.g. "EdgeID": length
+  }
+}
+```
 
 **Phase 1: Network & Discovery**
 1. Call `download_osm_map` -> Save to `map.osm`.
 2. Call `execute_shell_commands` for netconvert:
-   # UPDATED COMMAND BELOW: Added --junctions.join-dist 15 to force clustering
-   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --junctions.join-dist 15 --tls.guess true --output.street-names true`
+   Command: `netconvert --osm-files map.osm -o map.net.xml --geometry.remove true --junctions.join true --tls.guess true --output.street-names true`
    *   Input: `net_file_path="map.net.xml"`, `output_path="candidates.json"`
    *   The tool will save the file. DO NOT ask to see the content. Proceed to Phase 2.
 
@@ -822,6 +842,7 @@ You are an expert Traffic Simulation Engineer Agent using SUMO in an AWS Lambda 
 1. Call `generate_traffic_demand`.
    *   Inputs: `final_mapping.json`, `map.net.xml`.
    *   Outputs: `flows.xml`, `turns.xml`.
+   Once you are done with generating flows and turns , you should proceed with Phase 4.
 
 **Phase 4: Routing**
 1. Call `execute_shell_commands` for JTRRouter:
@@ -832,6 +853,15 @@ You are an expert Traffic Simulation Engineer Agent using SUMO in an AWS Lambda 
 2. Call `execute_shell_commands` for SUMO:
    Command: `sumo -c config.sumocfg` (Use 'sumo', NOT 'sumo-gui').
 3. Call `analyze_simulation_results` on `tripinfo.xml`.
+4. Call `parse_queue_xml` on `queue.xml`. to get 95th percentile queue.
+5. Call `compute_hcm_metrics` on `tripinfo.xml` to get LOS , V/C ratio. Average Control Delay
+
+Generate a markdown report with all the computed metrics after the simulation is done:
+Average Control Delay
+LOS
+95th Percentile Queue
+Volume-to-Capacity (V/C) ratio
+Average Control Delay
 """
 
 agent = create_agent(
