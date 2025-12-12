@@ -57,7 +57,8 @@ Format:
    * Always use `sumo`, NOT `sumo-gui`.
 3. Call `analyze_simulation_results` on `/tmp/tripinfo.xml`.
 4. Call `compute_hcm_metrics` on `/tmp/tripinfo.xml` and `/tmp/queue.xml`.
-5. Finally, call `export_simulation_files` to save results to S3.
+5. Call `parse_queue_xml` on `/tmp/queue.xml`.
+6. Finally, call `export_simulation_files` to save results to S3.
 
 
 
