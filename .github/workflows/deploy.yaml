@@ -1,115 +1,56 @@
-name: TIA Worker Agent - Deploy to Lambda
+name: Deploy Backend to Lambda
 
 on:
   push:
     branches:
       - main
     paths:
-      - '**' 
+      - '**'
   workflow_dispatch:
-
-env:
-  AWS_REGION: us-east-1                  
-  ECR_REPOSITORY: tia-agent-worker-repo   # Name of your ECR Repo
-  LAMBDA_FUNCTION_NAME: TIA-Agent         # Name of your Lambda Function in AWS
-  BACKEND_DIR: .                          
 
 jobs:
   deploy:
+    name: Build and Deploy to Lambda
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # ------------------------------------
-      # 1. AUTHENTICATION
-      # ------------------------------------
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-        # Note: Removed 'registry-type: public'. Usually Lambda images are in private repos.
-        # If you really are using public ECR, add 'registry-type: public' back.
 
-      # ------------------------------------
-      # 2. BUILD, TAG, AND PUSH
-      # ------------------------------------
-      - name: Build, tag, and push image to Amazon ECR
+      - name: Build, tag, and push Docker image
+        id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{ github.sha }} 
+          ECR_REPOSITORY: tia-agent-worker-repo
+          IMAGE_TAG: ${{ github.sha }}
         run: |
-          cd ${{ env.BACKEND_DIR }}
-          
-          # Build the Docker image
+          # Build Docker image
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          
-          # Push the image to ECR
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+          # Push both tags
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          
-          # Output the image URI for the next step
-          echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
-      # ------------------------------------
-      # 3. DEPLOY TO LAMBDA
-      # ------------------------------------
-      - name: Update Lambda Code
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Update Lambda Function Code
+        env:
+          LAMBDA_FUNCTION_NAME: TIA_Agent
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: tia-agent-worker-repo
         run: |
-          echo "Updating Lambda function code..."
           aws lambda update-function-code \
-            --function-name ${{ env.LAMBDA_FUNCTION_NAME }} \
-            --image-uri ${{ env.IMAGE_URI }}
-
-      - name: Update Lambda Configuration (Env Vars)
-        # This step syncs GitHub Secrets to Lambda Environment Variables
-        run: |
-          echo "Updating Environment Variables..."
-          aws lambda update-function-configuration \
-            --function-name ${{ env.LAMBDA_FUNCTION_NAME }} \
-            --environment "Variables={GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }},HEADLESS_MODE=true,SUMO_HOME=/usr/share/sumo}"
-
-      - name: Wait for Update to Complete
-        run: |
-          echo "Waiting for Lambda update to finish..."
-          aws lambda wait function-updated --function-name ${{ env.LAMBDA_FUNCTION_NAME }}
-
-      # ------------------------------------
-      # 4. GET FUNCTION URL
-      # ------------------------------------
-      - name: Get Function URL
-        id: get-url
-        run: |
-          # Try to get the existing Function URL configuration
-          FUNC_URL=$(aws lambda get-function-url-config \
-            --function-name ${{ env.LAMBDA_FUNCTION_NAME }} \
-            --query 'FunctionUrl' \
-            --output text || echo "None")
-          
-          if [ "$FUNC_URL" == "None" ]; then
-            echo "Function URL not enabled. Enabling now..."
-            # Create Function URL (NONE auth for public access, AWS_IAM for private)
-            FUNC_URL=$(aws lambda create-function-url-config \
-              --function-name ${{ env.LAMBDA_FUNCTION_NAME }} \
-              --auth-type NONE \
-              --query 'FunctionUrl' \
-              --output text)
-            
-            # Add permission for public access (optional, remove if using IAM auth)
-            aws lambda add-permission \
-              --function-name ${{ env.LAMBDA_FUNCTION_NAME }} \
-              --statement-id FunctionURLAllowPublicAccess \
-              --action lambda:InvokeFunctionUrl \
-              --principal "*" \
-              --function-url-auth-type NONE || true
-          fi
-          
-          echo "✅ DEPLOYMENT COMPLETE"
-          echo "🚀 Function URL: $FUNC_URL"
-          echo "url=$FUNC_URL" >> $GITHUB_OUTPUT
+            --function-name $LAMBDA_FUNCTION_NAME \
+            --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:latest

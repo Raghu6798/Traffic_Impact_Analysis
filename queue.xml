@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2025-12-12T16:10:03.762246+05:30 by Eclipse SUMO sumo 1.25.0
+<!-- generated on 2025-12-13T15:37:19.998246+05:30 by Eclipse SUMO GUI 1.25.0
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -21107,73 +21107,4 @@
     <data timestep="3588.00">
         <lanes>
             <lane id="-896870298_0" queueing_time="18.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="23.00" queueing_length="21.00" queue1.00" queueing_length_experimental="21.00"/>
-        </lanes>
-    </data>
-    <data timestep="3589.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="19.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="24.00" queueing_length="21.00" queueing_length_experimental="21.00"/>
-        </lanes>
-    </data>
-    <data timestep="3590.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="20.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="25.00" queueing_length="28.52" queueing_length_experimental="28.52"/>
-        </lanes>
-    </data>
-    <data timestep="3591.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="21.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="26.00" queueing_length="28.51" queueing_length_experimental="36.12"/>
-        </lanes>
-    </data>
-    <data timestep="3592.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="22.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="27.00" queueing_length="36.03" queueing_length_experimental="36.03"/>
-        </lanes>
-    </data>
-    <data timestep="3593.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="23.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="28.00" queueing_length="36.01" queueing_length_experimental="36.01"/>
-        </lanes>
-    </data>
-    <data timestep="3594.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="24.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="29.00" queueing_length="36.01" queueing_length_experimental="36.01"/>
-        </lanes>
-    </data>
-    <data timestep="3595.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="25.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="30.00" queueing_length="36.01" queueing_length_experimental="36.01"/>
-        </lanes>
-    </data>
-    <data timestep="3596.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="26.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="31.00" queueing_length="36.01" queueing_length_experimental="36.01"/>
-        </lanes>
-    </data>
-    <data timestep="3597.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="27.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="32.00" queueing_length="36.01" queueing_length_experimental="36.01"/>
-        </lanes>
-    </data>
-    <data timestep="3598.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="28.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="33.00" queueing_length="36.01" queueing_length_experimental="43.58"/>
-        </lanes>
-    </data>
-    <data timestep="3599.00">
-        <lanes>
-            <lane id="-896870298_0" queueing_time="29.00" queueing_length="6.00" queueing_length_experimental="6.00"/>
-            <lane id="88289922#8_0" queueing_time="34.00" queueing_length="43.54" queueing_length_experimental="43.54"/>
-        </lanes>
-    </data>
-</queue-export>
+            <lane id="88289922#8_0" queueing_time="23.00" queueing_length="2
